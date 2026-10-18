@@ -3,6 +3,30 @@
 > **Techathon 2026 · 上海科技大学 · 2026-10-18 最终整合版**
 > 看见形状，听见世界。把照片、绘画与长卷，变成可听、可看、可复现的音乐。
 
+---
+
+## ⚡ 下载即运行（精简版）
+
+> **下载 → 解压 → 进目录 → 装依赖 → 启动。** zip 约 303 MB，解压后约 574 MB。
+
+**下载：** https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable
+
+```powershell
+# 1. 解压后进入目录（必须）
+cd "D:\你解压的位置\Sonify-Runnable-20261018"
+
+# 2. 安装依赖（只需一次；国内建议保留镜像）
+py -3.12 -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 3. 启动
+py -3.12 start_sonify.py --port 8895
+```
+
+打开 **http://127.0.0.1:8895/**（以控制台打印的“主页”为准）。停止：**Ctrl + C**。
+详细说明与已知限制见 [`README-RUNNABLE.md`](README-RUNNABLE.md)。
+
+---
+
 **本仓库是源码评审包**：包含全部自研代码、算法与验收记录；**不包含**约 8 GB 的生成音轨、展览图像、大型音源/模型与用户任务。完整现场版在团队笔记本运行，源码用于评委审阅与核心链路复现。
 
 > 产品介绍、三种听法、新增能力与完整架构图见 **[PRODUCT.md](PRODUCT.md)**；第三方许可见 **[THIRD_PARTY.md](THIRD_PARTY.md)**。
@@ -21,21 +45,10 @@
 
 ---
 
-## 下载即运行（精简版）
+## 下载即运行
 
-不想自己补 7.9 GB 资源？直接下载 **v1.0 可运行精简版**（下载约 303 MB / 解压后约 574 MB）：
-
-**https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable**
-
-```bash
-# 解压后
-pip install -r requirements.txt
-python start_sonify.py --port 8895
-# 打开 http://127.0.0.1:8895/
-```
-
-包含：完整源码、SoundFont、`sample5` 三模式 + 四季、三卷长卷、Paint 两个入口、Windows 便携依赖。
-不包含：6.8 GB 批量 WAV、生成任务、18 册画册全量媒体（详见 [`README-RUNNABLE.md`](README-RUNNABLE.md)）。
+> 安装与启动步骤已移到文首 **[⚡ 下载即运行](#-下载即运行精简版)**。
+> Release：https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable
 
 ---
 

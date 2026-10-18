@@ -1,7 +1,58 @@
 # Sonify · 可运行精简版（v1.0）
 
-> 下载 → 解压 → 安装依赖 → 启动。
-> 已去掉 **6.8 GB** 批量预渲染音频与生成任务，只保留能直接演示的核心资产。
+## ⚡ 先看这里：安装与启动（3 步）
+
+> **下载 → 解压 → 进目录 → 装依赖 → 启动。**
+> zip 约 **303 MB**，解压后约 **574 MB**。
+
+### 第 1 步：解压并进入目录
+
+把 `Sonify-Runnable-20261018.zip` 解压，然后在 **PowerShell** 里执行：
+
+```powershell
+cd "D:\你解压的位置\Sonify-Runnable-20261018"
+```
+
+> 必须进入这个目录：`requirements.txt` 和 `start_sonify.py` 都在这里。
+
+### 第 2 步：安装依赖（只需一次）
+
+```powershell
+py -3.12 -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+> 国内网络建议保留 `-i` 镜像。已确认 `opencv-contrib-python-headless==5.0.0.93` 在 PyPI 可安装。
+
+### 第 3 步：启动
+
+```powershell
+py -3.12 start_sonify.py --port 8895
+```
+
+看到控制台打印：
+
+```
+SONIFY 最终整合版!!!
+主页: http://127.0.0.1:8895/
+```
+
+就打开：
+
+# http://127.0.0.1:8895/
+
+> - 如果 8895 被占用，脚本会自动换端口，**以控制台打印的“主页”为准**。
+> - 停止服务：在 PowerShell 里按 **Ctrl + C**。
+> - 首次启动 Windows 可能弹防火墙提示，允许本地访问即可。
+
+### 常见问题
+
+| 问题 | 解决 |
+|---|---|
+| `py` 不是命令 | 先 `python --version` 确认是 3.12，然后把所有 `py -3.12` 换成 `python` |
+| `pip` 很慢 / 超时 | 保留清华镜像 `-i https://pypi.tuna.tsinghua.edu.cn/simple`，或换手机热点 |
+| 8895 被占用 | 看控制台实际打印的端口，或改用 `--port 8905` |
+| 上传照片没反应 | 配置自己的豆包 Key，或在结构处理方式里选 OpenCV 回退 |
+| 页面能开但没声音 | 先点页面里的播放按钮（浏览器要求一次用户点击才允许音频） |
 
 ---
 
@@ -25,32 +76,7 @@
 - `batch_results` 全量、`V4.31-original` 重复构建、`circle` 模块
 - 豆包 API Key（自行配置；不配置可用 OpenCV 回退）
 
-## 3. 运行
-
-### 环境
-
-- Windows 10/11
-- Python **3.12**
-- Chrome / Edge
-
-### 安装与启动
-
-```bash
-pip install -r requirements.txt
-python start_sonify.py --port 8895
-```
-
-或双击：
-
-```
-启动最终版!!!.cmd
-```
-
-打开：
-
-```
-http://127.0.0.1:8895/
-```
+## 3. 页面入口
 
 - 三模式：`/showcase/studio.html`
 - 长卷：`/scroll?work=qingming`（或 qianli / fuchun）
@@ -58,14 +84,6 @@ http://127.0.0.1:8895/
 - Paint：`/paint`
 - 接待：`/host`
 - 社区：`/community`
-
-### 豆包 Seedream（可选）
-
-1. 复制 `photo/intake/ark.env.example` → `photo/intake/ark.local.env`
-2. 填入 `ARK_API_KEY=...`
-3. 在 `photo/intake/config.local.json` 配置 `ark_model`
-
-不配置时，上传可用 OpenCV 回退出稿。
 
 ## 4. 已知限制
 
