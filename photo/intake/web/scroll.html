@@ -194,11 +194,11 @@ async function play(){if(!ready)return;try{if(audio.ended)audio.currentTime=0;aw
 async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await root.requestFullscreen()}catch(_){status('当前窗口不支持全屏，已保留沉浸观看。')}}
 function enter(){if(!ready)return;started=true;root.classList.add('started');root.classList.toggle('show-geometry',mapping);$('invitation').hidden=true;$('transport').hidden=false;$('controls-hint').hidden=false;update();if(!document.fullscreenElement&&root.requestFullscreen)root.requestFullscreen().catch(()=>{});play()}
 function checkReady(){if(score&&image.complete&&image.naturalWidth>0&&duration()>0&&audio.readyState>=2){ready=true;clearTimeout(loadTimer);root.classList.remove('error');$('start').disabled=$('play').disabled=seek.disabled=false;$('edition').disabled=false;$('loading').hidden=true;$('retry').hidden=true;status('');if(pendingTime!==null){const t=pendingTime,resume=pendingResume;pendingTime=null;pendingResume=false;audio.currentTime=clamp(t,0,duration());if(resume)play()}update()}}
-async function json(url){const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error();return r.json()}
+async function json(url){const r=await fetch(url,{cache:'default'});if(!r.ok)throw Error();return r.json()}
 async function chooseMode(id,retain=true){
  const variant=manifest.variants.find(v=>v.id===id);if(!variant)throw Error();const token=++modeAttempt;
  const oldTime=retain?audio.currentTime:0,resume=retain&&!audio.paused;ready=false;score=null;audio.pause();$('start').disabled=$('play').disabled=$('edition').disabled=seek.disabled=true;status('正在请出这一卷的乐章…');
- clearTimeout(loadTimer);loadTimer=setTimeout(()=>{if(token===modeAttempt&&!ready)fail('此卷乐章加载较慢，请重新加载。')},20000);
+ clearTimeout(loadTimer);loadTimer=setTimeout(()=>{if(token===modeAttempt&&!ready)fail('此卷乐章加载较慢，请重新加载。')},90000);
  try{const next=await json(variant.score);if(token!==modeAttempt)return;
   if(!next.notes.length||next.notes.some(n=>!paths.has(n.source)))throw Error();score=next;activeSignature='';selectedSource=null;$('selected-source').hidden=true;
   const c=next.coverage;$('coverage-stats').textContent=c?`${c.analysis_size[0]} × ${c.analysis_size[1]} 解析 · ${c.extracted_paths.toLocaleString()} 条轮廓 · ${c.skeleton_samples.toLocaleString()} 骨架点\n本版 ${c.audible_notes.toLocaleString()} 个实响音符，涉及 ${c.audible_paths.toLocaleString()} 条来源路径`:'正在读取骨架覆盖…';
@@ -208,7 +208,7 @@ async function chooseMode(id,retain=true){
 }
 async function load(){
  const token=++attempt;++modeAttempt;clearTimeout(loadTimer);ready=false;score=null;audio.pause();$('start').disabled=$('play').disabled=true;$('loading').hidden=false;$('loading').textContent='正在请出长卷…';$('retry').hidden=true;root.classList.remove('error');status('');
- loadTimer=setTimeout(()=>{if(token===attempt&&!ready)fail('画卷或音乐加载较慢，请重试。')},20000);
+ loadTimer=setTimeout(()=>{if(token===attempt&&!ready)fail('画卷或音乐加载较慢，请重试。')},90000);
  try{
   if(!workCatalog){try{workCatalog=(await json('/museum/scroll/catalog.json')).works}catch(_){workCatalog=[{id:'qingming',title:'清明上河图',manifest:'/museum/scroll/manifest.json'}]}}
   if(token!==attempt)return;
