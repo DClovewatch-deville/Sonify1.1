@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sonify · 从一张图片开始</title><link rel="stylesheet" href="/style.css"><script src="/experience-lineart-bridge.js"></script></head>
+<body><header><a class="brand" href="/">SONIFY <span>让世界唱起来</span></a><a href="/experience">进入完整生成体验 ↗</a><a href="/host">现场扫码接待 ↗</a><a href="/showcase/studio.html">示例作品 · 三模式 ↗</a></header>
+<main><section class="intro"><p class="eyebrow">EVERYTHING HAS A SOUND</p><h1>从一张图片，<br>发现声音的轮廓。</h1><p>选择你的照片或绘画，提取其中的线条与结构。<br>让视觉成为音乐的起点。</p></section>
+<section class="workspace"><div class="controls"><label id="drop" class="drop" for="file"><span class="plus">＋</span><strong>将图片拖到这里</strong><span>或点击选择 · JPG / PNG · 最大 12 MB</span><input id="file" type="file" accept="image/jpeg,image/png"></label>
+<label class="field">结构处理方式<select id="provider"><option value="supplied">本地精细线稿 · 免费离线</option><option value="local">快速结构提取 · 免费离线</option><option value="comfy" disabled>AI结构提纯 · 专用工作台</option><option value="seedream">豆包线稿 · 云端生成</option></select></label><p class="hint"><a href="/cloud-batch">云端批量生成 ↗</a> · 需单独配置服务</p>
+<label class="check" hidden><input type="checkbox" id="artistic" disabled>同时生成艺术线稿 <small id="cloud-note">待开通云端服务</small></label>
+<button id="generate" disabled>开始生成 <span>↗</span></button><p class="hint">默认使用本地精细线稿，免费离线。云端生成需配置豆包服务。</p>
+<div class="engine"><span class="dot"></span><span id="engine">正在检查处理服务…</span></div></div>
+<div class="preview"><div class="section-head"><h2>你的图片</h2><span id="filename">等待选择</span></div><div class="image-frame"><img id="original" alt="上传的原始图片" hidden><p id="empty">建筑、山水、绘画<br><span>每一种形状，都可以是起点。</span></p></div></div></section>
+<section id="result" hidden><div class="section-head"><div><p class="eyebrow">VISUAL STRUCTURE</p><h2>线条，正在显现。</h2></div><p id="status" role="status" aria-live="polite"></p></div><button id="fallback-local" hidden>云端未返回线稿，尝试本地快速出稿</button><div id="error" role="alert" hidden></div>
+<div class="results"><article><h3>结构线稿 <small>用于几何分析</small></h3><div class="image-frame"><img id="structural" alt="从当前图片提取的结构线稿" hidden><span id="structure-wait">等待结构处理</span></div></article><article><h3>豆包线稿 <small>用于展示与结构解析</small></h3><div class="image-frame"><img id="art" alt="当前图片生成的艺术线稿" hidden><span id="art-wait">本次未启用艺术生成</span></div></article></div>
+<div class="handoff"><div><h3 id="ready-title">准备接入 MusicPhoto</h3><p id="summary">图片结构准备完成后，将为三个展示模式生成独立作品。</p></div><div class="downloads"><a id="workspace" hidden target="_blank" rel="noopener">打开我的音乐作品 ↗</a><a id="geometry" hidden download>下载几何数据 ↗</a><a id="handoff" hidden download>下载接入清单 ↗</a></div></div><p class="hint">蓝图谱 · 灵魂交响 · 渐显乐章，共用本次上传的结构数据。作品在独立空间生成，保留现有展示样例。</p></section>
+<footer>原图 → 结构线稿 → Geometry DNA → Sonic Grammar → 音乐作品</footer></main><script src="/app.js"></script></body></html>

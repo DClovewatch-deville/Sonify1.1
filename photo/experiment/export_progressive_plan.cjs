@@ -1,0 +1,1 @@
+const fs=require('node:fs'),vm=require('node:vm');const s=fs.readFileSync(__dirname+'/ui/progressive_revelation.js','utf8');const c={};vm.createContext(c);vm.runInContext(s.slice(s.indexOf('function makeRevealPlan'),s.indexOf('let revealPlan')),c);fs.writeFileSync(process.argv[3],JSON.stringify(c.makeRevealPlan(JSON.parse(fs.readFileSync(process.argv[2],'utf8')))));

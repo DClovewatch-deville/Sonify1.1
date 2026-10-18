@@ -1,0 +1,28 @@
+{
+  "release": "Sonify-最终整合版!!!-20261018",
+  "status": "passed for recorded scope",
+  "modules": [
+    "Photo",
+    "MusicPaint",
+    "Fourier",
+    "MusicLab",
+    "Scroll",
+    "Community V1.2"
+  ],
+  "python_tests": 54,
+  "fourier_composition_cases": 108,
+  "musicpaint_test_files": 6,
+  "lab_missing_referenced_assets": 0,
+  "real_role_recomposition": true,
+  "fresh_local_upload": true,
+  "cloud_generation_tested": false,
+  "physical_phone_tested": false,
+  "windows_chinese_path_render": true,
+  "known_conditions": [
+    "Python3.12 required; Windows x64 dependencies included",
+    "Cloud generation requires user-owned key and network",
+    "Online exploration requires Wikimedia connectivity",
+    "No new physical phone/LAN interoperability test in this integration"
+  ],
+  "sources": "integration-sources.json"
+}

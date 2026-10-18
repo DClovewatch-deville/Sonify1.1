@@ -1,0 +1,92 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sonify · Progressive 一页对比试听</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0d1b1e;color:#e8e4d9;font:15px/1.7 "Segoe UI","Microsoft YaHei",sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;border-bottom:1px solid #ffffff16}
+a{color:#d9c78b;text-decoration:none}
+main{max-width:1180px;margin:auto;padding:24px 4vw}
+h1{font-weight:300;font-size:clamp(22px,3vw,32px);margin:6px 0}
+.tag{color:#a0b5ad}
+.controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:20px 0}
+button,select{font:inherit;color:#e8e4d9;background:#203a37;border:1px solid #476057;border-radius:7px;padding:9px 14px;cursor:pointer}
+button:hover{filter:brightness(1.2)}
+button.primary{background:#d9c78b;color:#172c2b;border-color:#d9c78b;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.card{background:#12282a;border:1px solid #ffffff12;border-radius:12px;padding:14px;display:flex;gap:14px}
+.card img{width:96px;height:130px;object-fit:cover;border-radius:6px;background:#f4f1e6}
+.card .meta{min-width:0;flex:1}
+.card h3{font-size:15px;margin:0 0 4px;color:#c9e8e0;font-weight:500}
+.card .params{font-size:12px;color:#8fb0a4;margin:4px 0 8px;line-height:1.6}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btns button{font-size:12px;padding:6px 10px}
+.card.playing{border-color:#d9c78b;box-shadow:0 0 0 1px #d9c78b}
+.badge{display:inline-block;font-size:11px;padding:1px 6px;border-radius:3px;background:#213f3b;color:#9fc0b6;margin-left:6px}
+.foot{color:#7f9c92;font-size:12px;margin-top:26px;border-top:1px solid #ffffff14;padding-top:14px}
+#now{font-size:13px;color:#d9c78b;min-height:22px}
+</style>
+<body>
+<header><strong style="letter-spacing:3px">SONIFY</strong><a href="studio.html">← 回 Geometry Studio</a></header>
+<main>
+  <h1>同一张图？不同结构？—— 一听便知。</h1>
+  <p class="tag">同一风格、不同图；或同一张图、不同风格。点卡片试听，或一键依次播放 6 张图。</p>
+  <div class="controls">
+    <button id="seq" class="primary">▶ 依次试听 6 张图</button>
+    <label style="color:#a0b5ad">风格
+      <select id="style"><option value="nature">东方自然</option><option value="chamber">室内古典</option></select>
+    </label>
+    <button id="stop">停止</button>
+    <span id="now"></span>
+  </div>
+  <div id="grid" class="grid"></div>
+  <p class="foot">每个样本用同一条 Progressive 编排管线，只由该图的几何特征（垂直度/曲率/重复度/密度）决定音区、声部与高潮；主题动机取自该图自己的主轮廓。音频为该样本的 36 秒 Progressive 混音。</p>
+</main>
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const au=new Audio(); au.preload='metadata';
+let samples=[], style='nature', queue=[], qi=0, current=-1;
+function mixUrl(id,st){ return `studio/${id}-progressive${st==='chamber'?'-chamber':''}-mix.wav`; }
+function markCard(){ document.querySelectorAll('.card').forEach((c,i)=>c.classList.toggle('playing',i===current)); }
+function playIndex(i){
+  if(i<0||i>=samples.length)return;
+  current=i; markCard();
+  au.src=mixUrl(samples[i].id,style); au.currentTime=0; au.play().catch(()=>{});
+  $('#now').textContent='正在试听：'+samples[i].name+' · '+(style==='nature'?'东方自然':'室内古典');
+}
+au.onended=()=>{
+  if(queue.length){ qi++; if(qi<queue.length){ playIndex(queue[qi]); } else { queue=[]; current=-1; markCard(); $('#now').textContent='6 张图播放完毕 · 对比它们的音区/声部/主题差异'; } }
+  else { current=-1; markCard(); $('#now').textContent=''; }
+};
+function card(row,d){
+  const p=(d.progressive&&d.progressive.arrangement_params)||{}, f=(d.progressive&&d.progressive.features)||{}, th=(d.progressive&&d.progressive.theme)||[];
+  const el=document.createElement('div'); el.className='card';
+  el.innerHTML=`<img src="${row.id}.jpg" alt="${row.name}">
+    <div class="meta"><h3>${row.name}</h3>
+      <div class="params">音区 ${p.register>=0?'+':''}${p.register} · 声部 ${(p.voices||[]).length} · 高潮抬升 ${p.climax_lift} · legato ${p.legato}<br>
+      垂直度 ${(f.verticality??0).toFixed(2)} · 密度 ${(f.density??0).toFixed(2)} · 主题 ${th.map(n=>n.pitch).join(' ')}
+      <span class="badge">${d.progressive&&d.progressive.preset_name||''}</span></div>
+      <div class="btns"><button data-play="${row.id}" data-st="nature">▶ 东方自然</button><button data-play="${row.id}" data-st="chamber">▶ 室内古典</button></div>
+    </div>`;
+  return el;
+}
+async function load(){
+  const rows=await (await fetch('studio/manifest.json')).json();
+  samples=rows; const grid=$('#grid');
+  for(const row of rows){
+    let d={}; try{ d=await (await fetch('studio/'+row.id+'.json')).json(); }catch(e){}
+    grid.appendChild(card(row,d));
+  }
+}
+$('#grid').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-play]'); if(!b)return;
+  const i=samples.findIndex(s=>s.id===b.dataset.play);
+  style=b.dataset.st; $('#style').value=style;
+  queue=[]; playIndex(i);
+});
+$('#style').onchange=e=>{ style=e.target.value; if(current>=0){ queue=[]; playIndex(current); } };
+$('#seq').onclick=()=>{ style=$('#style').value; queue=samples.map((_,i)=>i); qi=0; playIndex(0); };
+$('#stop').onclick=()=>{ au.pause(); au.currentTime=0; queue=[]; current=-1; markCard(); $('#now').textContent=''; };
+load();
+</script>
+</body></html>

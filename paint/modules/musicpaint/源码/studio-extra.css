@@ -1,0 +1,108 @@
+/* Additional styles for Day 3 enhancements */
+
+.emotion-presets {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.emotion-preset {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d0d8cc;
+  border-radius: 8px;
+  background: #fefffa;
+  color: #456a58;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.emotion-preset:hover {
+  background: #f4f6ef;
+  border-color: #aa8551;
+}
+
+.emotion-preset:active {
+  transform: translateY(1px);
+}
+
+.mode-key-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.mode-key-row > span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #456a58;
+}
+
+.key-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.key-lock-btn {
+  padding: 4px 8px;
+  font-size: 16px;
+  border: 1px solid #d0d8cc;
+  border-radius: 6px;
+  background: #fefffa;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.key-lock-btn:hover {
+  background: #f4f6ef;
+  border-color: #aa8551;
+}
+
+.score-details {
+  border: none;
+  margin: 0;
+}
+
+.score-details > summary {
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #456a58;
+  background: #f6f7f0;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.2s;
+}
+
+.score-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.score-details > summary::before {
+  content: '▼';
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform 0.2s;
+}
+
+.score-details:not([open]) > summary::before {
+  transform: rotate(-90deg);
+}
+
+.score-details > summary:hover {
+  background: #eef0e7;
+}
+
+.score-details[open] > summary {
+  border-bottom: 1px solid #dde4d8;
+}
+
+.fine-tune > summary {
+  font-size: 13px;
+  color: #6a7d70;
+}

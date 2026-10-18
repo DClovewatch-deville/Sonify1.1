@@ -1,0 +1,17 @@
+[
+  {
+    "file": "FluidR3Mono-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/LibreScore/sf3/master/FluidR3Mono_License.md",
+    "sha256": "c21ed6be2fea862673953977c616befc28d1b20dfa60349e4461b97c759db6ca"
+  },
+  {
+    "file": "Apache-2.0.txt",
+    "source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "MIDI-js-soundfonts-README.txt",
+    "source": "https://raw.githubusercontent.com/gleitz/midi-js-soundfonts/gh-pages/README.md",
+    "sha256": "e42378ee860c7f866f6e6d3f60ba80a19e99ed218b5e292d2431d94a5dd5b8f4"
+  }
+]

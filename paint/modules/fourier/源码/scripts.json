@@ -1,0 +1,20 @@
+[
+  "00-offline-assets.js",
+  "01-fourier.js",
+  "02-canvas.js",
+  "03-multifourier.js",
+  "04-instrument-samples.js",
+  "05-instrument-bank.js",
+  "06-music.js",
+  "07-color-export.js",
+  "08-text-paths.js",
+  "09-sketch-mask.js",
+  "10-structure.js",
+  "11-subject-rank.js",
+  "12-sam.js",
+  "13-scene.js",
+  "14-interface.js",
+  "15-piano-roll.js",
+  "16-workspace.js",
+  "17-drawing-tools.js"
+]

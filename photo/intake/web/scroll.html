@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101d19"><meta name="description" content="千古长卷，一卷成声。展开《清明上河图》虹桥精华篇，随乐徐展。">
+<title>千古长卷，一卷成声 · Sonify</title>
+<style>
+:root{color-scheme:dark;--ink:#101d19;--gold:#c1a975;--paper:#e8dfc3;--muted:#a5ab98;--opening:1;--p:0;--turn:0px;--left-roll:38px;--right-roll:20px}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--ink)}body{font-family:Georgia,'Noto Serif SC','Songti SC','SimSun',serif;color:var(--paper);overflow:hidden}button,a,input{ -webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{font:inherit;color:inherit;cursor:pointer}button:disabled{cursor:wait;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #e1c78b;outline-offset:6px}button{border:0;background:none}a{color:inherit;text-decoration:none}button[hidden],[hidden]{display:none!important}
+.exhibition{height:100dvh;min-height:480px;position:relative;display:flex;flex-direction:column;isolation:isolate;background:radial-gradient(ellipse at 50% 42%,#34483b70 0,transparent 66%),linear-gradient(145deg,#14231e,#0d1714 75%)}.exhibition:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.17;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.22' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px;padding:0 4.8vw;flex-shrink:0;z-index:5;font:11px/1.5 sans-serif;letter-spacing:1px}.back{color:#c9c7af}.brand{font:17px Georgia,serif;letter-spacing:5px;color:#c9b98e}.top-actions{display:flex;gap:23px;align-items:center}.top-actions button{font:11px sans-serif;color:#c2c4b3;padding:10px 0}.top-actions button:hover,.back:hover{color:#f3e5b8}
+.heading{height:164px;flex-shrink:0;text-align:center;transition:height 1s,opacity .8s;overflow:hidden}.eyebrow{font:9px/1.8 sans-serif;letter-spacing:4px;color:var(--gold);margin:8px 0 20px}.heading h1{font-size:clamp(28px,3.7vw,56px);font-weight:400;letter-spacing:.18em;margin:0 0 19px;padding-left:.18em}.heading .byline{font-size:11px;color:#b6b9a5;letter-spacing:4px;margin:0}.seal{display:inline-block;color:#d28d72;border:1px solid #a35b43;font-size:10px;letter-spacing:2px;padding:5px 3px;margin-left:14px;vertical-align:middle}
+.gallery{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;padding:25px 0 24px}.scroll{position:relative;width:89vw;height:100%;max-height:65vh;min-height:100px;--inset:calc((1 - var(--opening)) * 43%);filter:drop-shadow(0 20px 22px #0008)}.sheet{position:absolute;inset:9px 0;background:#bb9e69;border-top:14px solid #bca476;border-bottom:14px solid #bca476;clip-path:inset(0 var(--inset));overflow:hidden;box-shadow:inset 0 0 30px #21150866}.sheet:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#251b0b70,transparent 4%,transparent 96%,#251b0b70);box-shadow:inset 0 2px 5px #3e290c66,inset 0 -2px 5px #3e290c66}
+.viewport{height:100%;position:relative;overflow:hidden;background:#bca476}.track{height:100%;position:absolute;top:0;left:0;will-change:transform}.painting{display:block;height:100%;width:auto;max-width:none;user-select:none;-webkit-user-drag:none}.geometry{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s;pointer-events:none}.show-geometry .geometry{opacity:.72}.geometry path{fill:none;stroke:#fff0ac;stroke-width:1.2;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 2px #79580a)}
+.roll{position:absolute;top:-5px;bottom:-5px;width:var(--left-roll);left:var(--inset);transform:translateX(-50%);z-index:3;border-radius:48% / 3%;background:linear-gradient(90deg,#4f3f26,#b89f6b 18%,#edddb0 38%,#cfb784 60%,#665031 96%);box-shadow:5px 0 12px #0007,-4px 0 8px #0004;overflow:visible}.roll.right{left:auto;right:var(--inset);width:var(--right-roll);transform:translateX(50%)}.roll:before,.roll:after{content:'';position:absolute;height:15px;left:-3px;right:-3px;top:-12px;border-radius:45% 45% 15% 15%;background:linear-gradient(90deg,#2c251b,#947b49 40%,#b39b68 52%,#403321 94%);box-shadow:0 2px 3px #0006}.roll:after{top:auto;bottom:-12px;transform:rotate(180deg)}.roll-surface{position:absolute;inset:7px 1px;border-radius:40% / 3%;overflow:hidden;mix-blend-mode:multiply;opacity:.25;background:repeating-linear-gradient(90deg,transparent 0 5px,#624e2d 7px,transparent 9px 16px);background-position-x:var(--turn)}.roll.right .roll-surface{background-position-x:calc(0px - var(--turn))}.roll-glint{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#1c140d77,transparent 20%,#fff3ce66 38%,transparent 60%,#2f200d99);pointer-events:none}
+.gallery-mark{position:absolute;left:2.2vw;top:50%;writing-mode:vertical-rl;font-size:10px;letter-spacing:5px;color:#85917c;transform:translateY(-50%)}.gallery-mark.right-mark{left:auto;right:2vw;color:#a39067;font-size:9px;letter-spacing:3px}.caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:9px;letter-spacing:3px;color:#929b84}
+.below{height:157px;flex-shrink:0;text-align:center;position:relative;padding:20px 5vw 22px}.poem{font-size:clamp(14px,1.5vw,20px);font-weight:400;letter-spacing:5px;margin:0 0 17px;min-height:28px;color:#d3c5a1}.start{font-size:12px;letter-spacing:4px;border:1px solid #b49a6266;border-radius:1px;padding:13px 26px;background:#d9c3860b;transition:background .3s}.start:hover{background:#bfa46726}.start span{font:10px sans-serif;margin-right:15px}.hint{font:9px/1.6 sans-serif;letter-spacing:2px;color:#8e9a86;margin-top:11px}
+.transport{max-width:760px;margin:0 auto;display:flex;gap:20px;align-items:center;height:47px}.play{width:42px;height:42px;border:1px solid #b19b6566;border-radius:50%;font:14px sans-serif;flex-shrink:0}.replay{font:10px sans-serif;color:#b8bea7;white-space:nowrap}.timeline{flex:1;min-width:0}.range{width:100%;height:22px;margin:0;display:block;cursor:pointer;accent-color:#d3bc87;background:transparent}.range::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,#d4ba7f var(--progress,0%),#bfa36735 var(--progress,0%));border-radius:0}.range::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;margin-top:-3.5px;background:#e5d2a3}.range{-webkit-appearance:none}.time-row{display:flex;justify-content:space-between;color:#939e89;font:9px/1.5 sans-serif;letter-spacing:1px}.volume{width:65px;accent-color:var(--gold)}.sound{display:flex;align-items:center;gap:8px}.sound button{font-size:15px;padding:4px}.status{position:absolute;bottom:3px;left:8vw;right:8vw;font:11px/1.5 sans-serif;color:#e2bc99;margin:0;min-height:16px}.retry{font:11px sans-serif;border-bottom:1px solid;margin-left:12px}.started .heading{height:46px;opacity:1}.started .heading h1,.started .heading .byline{display:none}.started .heading .eyebrow{margin:8px 0}.started .gallery{padding-top:20px}.started .below{height:153px}.started .scroll{max-height:73vh}
+.chrome{transition:opacity .8s}.immersed.playing .chrome{opacity:0;pointer-events:none}.immersed.playing .topbar:hover,.immersed.playing .below:hover,.immersed.playing:focus-within .chrome{opacity:1;pointer-events:auto}.immersed.playing{cursor:none}.immersed.playing button,.immersed.playing a,.immersed.playing input{cursor:auto}
+dialog{width:min(570px,90vw);max-height:85dvh;overflow:auto;padding:38px;background:#e9e3d2;color:#243c30;border:1px solid #99875f;box-shadow:0 20px 80px #0008}dialog::backdrop{background:#06110cd9;backdrop-filter:blur(6px)}dialog h2{font-weight:400;letter-spacing:4px;font-size:25px}dialog p{font-size:13px;line-height:2}dialog a{text-decoration:underline;text-underline-offset:4px}dialog .close{float:right;font-size:25px}dialog details{font-size:12px;line-height:1.9;margin-top:22px}dialog summary{cursor:pointer}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.loading-note{font:11px sans-serif;color:#c3b38a;margin-top:15px}.error .start{display:none}
+@media(min-width:1600px){.heading{height:175px}.gallery{padding-top:40px;padding-bottom:35px}.below{height:170px}.scroll{width:88vw}.sheet{border-top-width:20px;border-bottom-width:20px}}
+@media(max-width:700px){.topbar{height:63px;padding:0 6vw}.brand{font-size:12px;letter-spacing:3px}.top-actions{gap:13px}.back,.top-actions button{font-size:10px}.heading{height:145px;padding-top:12px}.eyebrow{font-size:7px;letter-spacing:2px}.heading h1{font-size:25px;letter-spacing:3px}.heading .byline{font-size:9px;letter-spacing:2px}.seal{font-size:8px}.gallery{padding:30px 0}.scroll{width:83vw;max-height:48vh}.sheet{border-top-width:9px;border-bottom-width:9px}.below{height:178px;padding-top:22px}.poem{font-size:13px;letter-spacing:2px}.transport{gap:12px}.volume{display:none}.replay{font-size:9px}.time-row{font-size:8px;letter-spacing:0}.caption{font-size:8px;letter-spacing:1px}.gallery-mark{font-size:8px;letter-spacing:3px}.started .heading{height:35px}.started .below{height:160px}.started .scroll{max-height:65vh}.sound{gap:0}.start{font-size:11px}.hint{font-size:8px;letter-spacing:1px}dialog{padding:25px}}
+@media(max-height:520px) and (orientation:landscape){.exhibition{min-height:300px}.topbar{height:42px}.heading{height:70px}.heading .eyebrow{margin:0 0 10px}.heading h1{font-size:24px;margin:0}.heading .byline{display:none}.gallery{padding:15px 0}.below{height:99px;padding:8px 5vw}.poem{font-size:12px;margin-bottom:7px;min-height:18px}.start{padding:8px 18px}.hint{margin-top:5px}.started .heading{height:0}.started .below{height:98px}.transport{height:40px}.scroll{max-height:70vh}.caption{display:none}}
+.edition{height:30px;flex-shrink:0;text-align:center;font:10px sans-serif;letter-spacing:1px;color:#acb39d}.edition select{font:11px Georgia,'SimSun',serif;color:#d8c69b;background:#16261f;border:1px solid #ad936140;padding:5px 12px;max-width:260px}.edition label{margin-right:10px}.mapping-panel{position:absolute;right:5vw;bottom:185px;z-index:8;width:350px;max-width:88vw;max-height:48vh;overflow:auto;padding:19px;background:#10231fee;border:1px solid #bda46e66;box-shadow:0 9px 30px #0006;font:11px/1.85 sans-serif;color:#d4dac5}.mapping-panel h2{font:17px/1.8 Georgia,'SimSun',serif;letter-spacing:2px;color:#e7d6ae;margin:0 0 8px}.mapping-panel .close-map{float:right;font-size:19px;padding:0 0 10px 10px}.mini-map{position:relative;height:70px;margin:8px 0 12px;background:#9e855d;cursor:crosshair}.mini-map img{width:100%;height:100%;object-fit:fill;opacity:.75}.mini-map svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.mapping-panel p{margin:8px 0}.mapping-panel .source-row{padding:9px 0;border-top:1px solid #c8ac6b33}.mapping-panel .source-row strong{color:#f5d38c}.mapping-panel .source-row.dizi strong{color:#a5e3d3}.mapping-panel .mapping-note{font-size:10px;color:#a9b6a0}.mapping-panel a{text-decoration:underline;text-underline-offset:4px;color:#d5c18e}.geometry circle{vector-effect:non-scaling-stroke;stroke:#fff8d2;stroke-width:2;fill:#f9cc62}.show-geometry .geometry{opacity:1}.mapping-on .topbar.chrome{opacity:1!important;pointer-events:auto!important}.geometry path{stroke-width:3;stroke:#ffdf83;filter:drop-shadow(0 0 4px #704d04)}#mapping-toggle[aria-pressed=true]{color:#f0cf83}.mapping-panel .rule{color:#b2bca9;font-size:10px}dialog .sample-credit{font-size:11px;line-height:1.9}.top-actions{gap:18px}@media(max-width:700px){.brand{display:none}.top-actions{gap:14px}.topbar{padding:0 5vw}.mapping-panel{right:6vw;bottom:166px;padding:13px;max-height:36vh}.mapping-panel h2{font-size:14px}.mini-map{height:53px}.edition{font-size:9px}.edition select{font-size:10px}.mapping-panel{font-size:10px}.heading{height:140px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Masks stay over the unmodified original painting; no global outline layer. */
+.exhibition{--mask-strength:.72}.painting{opacity:1}
+.coverage-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .3s}
+.show-geometry .coverage-played{opacity:var(--mask-strength)}
+.show-geometry .geometry{opacity:1;filter:none}
+.geometry path{stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;filter:none;fill:none}
+.exhibition[data-mapping-style=soft] .coverage-played{filter:blur(1.2px);opacity:calc(var(--mask-strength) * .45)}
+.exhibition[data-mapping-style=soft] .geometry{opacity:var(--mask-strength);filter:blur(.7px)}
+.exhibition[data-mapping-style=soft] .geometry path{stroke-width:8}
+.show-geometry .track{cursor:crosshair}
+.mask-option{display:flex;align-items:center;gap:12px;font:11px/1.9 sans-serif;color:#d6c18f;margin:8px 0}.mask-option input{width:115px;accent-color:#d1b575}.mask-option select{font:11px sans-serif;background:#1b3028;color:#e0cfaa;border:1px solid #bfa56766;padding:5px}
+#selected-source{border:1px solid #dbc18188;padding:9px;background:#d5bc7810}#selected-detail{white-space:pre-line;overflow-wrap:anywhere}#revisit-source{font:11px sans-serif;color:#ffe3a0;border-bottom:1px solid;padding:4px 0}
+.coverage-stats{white-space:pre-line;color:#c5cfb6!important;line-height:1.8}#live-count{color:#dfc889}.mapping-panel{max-height:49vh}.mapping-panel .source-row{padding:7px 0}.mapping-panel .source-row div{font-size:10px}.geometry{overflow:hidden}@media(max-width:700px){.mapping-panel{max-height:36vh}}
+
+/* Painting and spatial score share the exact track and the audio clock. */
+.painting{transform-origin:center;transition:opacity .9s,filter .9s,transform .9s}
+.score-plane{position:absolute;inset:0;pointer-events:none;opacity:0;transform:translateY(32px) scale(.985);transition:opacity .9s,transform .9s;background:rgba(241,237,221,.95)}
+.score-plane canvas,.score-plane svg{position:absolute;inset:0;width:100%;height:100%}
+.score-view .painting{opacity:.18;filter:brightness(.45);transform:translateY(24px) scale(.985)}
+.score-view .score-plane{opacity:1;transform:translateY(0) scale(1)}
+.score-view .coverage-played,.score-view .geometry{opacity:0!important}
+.layer-caption{position:absolute;left:12%;right:12%;bottom:18px;text-align:center;font:10px/1.8 sans-serif;letter-spacing:1px;color:#c8bb98;opacity:0;pointer-events:none;transition:opacity .8s}
+.score-view .layer-caption{opacity:1}
+.mapping-panel{top:100px;bottom:auto;right:24px;width:330px;max-height:calc(100dvh - 210px);resize:both;min-width:260px;min-height:150px;max-width:calc(100vw - 16px)}
+#panel-handle{cursor:move;touch-action:none;user-select:none;padding-right:18px}#panel-handle small{font:9px sans-serif;color:#a7b39b}
+.mapping-on .gallery{margin-right:365px}.mapping-on .scroll{width:calc(89vw - 365px)}
+.top-actions{gap:17px}#layer-toggle[aria-pressed=true]{color:#ffe2a2}
+@media(max-width:900px){.mapping-on .gallery{margin-right:0;padding-bottom:190px}.mapping-on .scroll{width:83vw}.mapping-panel{top:auto;bottom:150px;right:6vw;width:88vw;max-height:180px;min-height:130px}.top-actions{gap:10px}.topbar{padding:0 3vw}.brand{display:none}.layer-caption{font-size:8px;bottom:18px}}
+.top-actions{flex-wrap:wrap;justify-content:flex-end;row-gap:0}#pure-toggle[aria-pressed=true]{color:#ffe2a2}.score-plane{background:rgba(241,237,221,.98)}
+.score-plane #score-context{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;filter:grayscale(1) contrast(1.1);opacity:.16;mix-blend-mode:multiply}
+.score-plane #score-context{opacity:.045}.score-plane #score-contours{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:.9}
+
+.edition{height:auto;min-height:34px;display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap}.edition label{margin:0 4px 0 12px}.chapter-nav{display:flex;justify-content:center;gap:24px;min-height:25px;flex-shrink:0}.chapter-nav button{font:9px/1.8 sans-serif;color:#aeb7a0;padding:2px 4px;border-bottom:1px solid #bfa56822}.chapter-nav button:hover{color:#efda9c}.topbar .back{white-space:nowrap}#about-work{white-space:pre-line}
+@media(max-width:700px){.edition{gap:4px;font-size:9px}.edition select{max-width:165px;padding:4px 6px}.chapter-nav{gap:12px;min-height:23px}.started .heading{height:25px}.started .scroll{max-height:65vh}}
+</style>
+</head>
+<body>
+<main data-mapping-style="lines" id="exhibition" class="exhibition show-geometry" aria-label="清明上河图沉浸展卷">
+<header class="topbar chrome"><a class="back" href="/musiclab#scroll-exhibition">← 返回展厅</a><a href="/musiclab" class="brand" aria-label="Sonify 声音画册">SONIFY</a><div class="top-actions"><button id="pure-toggle" aria-pressed="false">纯原画</button><button id="layer-toggle" aria-pressed="false" aria-controls="score-plane">几何释音</button><button id="mapping-toggle" aria-expanded="false" aria-controls="mapping-panel">看见声音来源</button><button id="about-open">题记与来源</button><button id="fullscreen" aria-label="进入全屏">全屏观卷 ⛶</button></div></header>
+<section class="heading chrome"><p class="eyebrow">SCROLL UNFOLDING · A THOUSAND YEARS, ONE LIVING SCORE</p><h1>千古长卷，一卷成声</h1><p id="work-byline" class="byline">《清明上河图》 · 北宋 张择端 <span class="seal">虹桥精华篇</span></p></section>
+<div class="edition chrome"><label for="work-choice">千古名卷</label><select id="work-choice" aria-label="选择名卷"><option value="qingming">清明上河图</option></select><label for="edition">聆听此卷</label><select id="edition" aria-label="卷轴音乐映射方式" disabled><option>正在读取乐章…</option></select></div>
+<nav id="chapters" class="chapter-nav chrome" aria-label="画卷章节定位"></nav><section class="gallery" aria-label="从右向左阅读画卷"><span class="gallery-mark" aria-hidden="true">一卷山河，随乐徐展</span><div id="scroll" class="scroll"><div id="sheet" class="sheet"><div id="viewport" class="viewport"><div id="track" class="track"><img id="painting" class="painting" alt="北宋张择端《清明上河图》虹桥、漕船与两岸市井局部" draggable="false"><canvas id="coverage-played" class="coverage-played coverage-layer" aria-label="原画上的实际音符来源彩线"></canvas><svg id="geometry" class="geometry" aria-hidden="true" preserveAspectRatio="none"></svg><div id="score-plane" class="score-plane" aria-label="真实空间映射音符谱卷"><img id="score-context" alt="原画淡墨底图，用于辨识桥船屋宇" draggable="false"><img id="score-contours" alt="去除碎线后的桥船屋宇主要轮廓" draggable="false"><canvas id="spatial-score" aria-label="清晰轮廓底图与逐音符主采样点谱"></canvas><svg id="score-live" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"></svg></div></div></div></div><div id="left-roll" class="roll" aria-hidden="true"><i class="roll-surface"></i><i class="roll-glint"></i></div><div id="right-roll" class="roll right" aria-hidden="true"><i class="roll-surface"></i><i class="roll-glint"></i></div></div><span id="artist-mark" class="gallery-mark right-mark" aria-hidden="true">北宋 · 张择端</span><p id="layer-caption" class="layer-caption" aria-live="polite"></p><p id="painting-caption" class="caption chrome">清明上河图 · 虹桥精华篇　 /　故宫博物院藏</p></section>
+<footer class="below chrome"><p id="poem" class="poem">择一卷山河，听一段千年。</p><div id="invitation"><button id="start" class="start" disabled><span aria-hidden="true">▷</span>展开并聆听</button><p id="loading" class="loading-note">正在请出长卷…</p><p class="hint">山河尚未展开，声音已在其中。</p></div><div id="transport" class="transport" hidden><button id="play" class="play" aria-label="播放音乐">▶</button><button id="replay" class="replay">重新展卷</button><div class="timeline"><label for="seek" class="sr-only">展卷与音乐进度</label><input id="seek" class="range" type="range" min="0" max="1000" step="1" value="0"><div class="time-row"><span id="clock">0:00 / 0:36</span><span>右起 · 向左徐展</span></div></div><div class="sound"><button id="mute" aria-label="静音" aria-pressed="false">♫</button><label for="volume" class="sr-only">音量</label><input id="volume" class="volume" type="range" min="0" max="1" step="0.01" value="0.7"></div></div><p id="controls-hint" class="hint" hidden>空格 暂停 / 继续　 ·　 ← → 回望 / 前行　 ·　 移动鼠标唤回控件</p><p id="status" class="status" role="status"></p><button id="retry" class="retry" hidden>重新加载画卷与音乐</button></footer>
+<aside id="mapping-panel" class="mapping-panel" aria-label="当前音符与画面来源" hidden><button id="mapping-close" class="close-map" aria-label="关闭声音来源">×</button><h2 id="panel-handle" tabindex="0" role="button" aria-label="移动声音来源面板，拖动或使用方向键">画有其形，音有其序。 <small>拖动</small></h2><p id="coverage-stats" class="mapping-note coverage-stats"></p><label class="mask-option">呈现方式 <select id="mapping-style" aria-label="声音来源呈现方式"><option value="lines">彩线留迹 · 已奏来源</option><option value="instant">即时彩线 · 当前发声</option><option value="soft">柔光掩膜 · 短暂余晖</option></select></label><label class="mask-option">彩线浓淡 <input id="mask-strength" type="range" aria-label="来源叠加浓淡" min="20" max="100" value="72"></label><p class="mapping-note">随本卷配色 · 五个真实声部<br>艺术展卷随乐留迹；几何释音展示主要轮廓。点击彩线可查真实音符。</p><div id="selected-source" hidden><p id="selected-detail"></p><button id="revisit-source">回到此音起处</button></div><p id="live-count" class="mapping-note"></p><div id="mini-map" class="mini-map" role="slider" tabindex="0" aria-label="在局部画卷中定位声音" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><img id="mini-image" alt="虹桥局部全景与当前采样位置"><svg id="mini-overlay" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true"></svg></div><div id="active-notes">展开并聆听后，在这里看见声音的来处。</div><p class="rule">横向位置 → 起音时刻<br>纵向高度 → 五声音阶<br>线条走向与长度 → 叙事音级与时值</p><p class="mapping-note">点击上方全景可回到该处聆听；短暂留白时没有高亮。同音、相近时刻的多处骨架点可汇聚成一个实响音符，并共同影响力度与时值。彩线留迹只显示当前进度之前已奏音符的真实来源；即时彩线仅显示当前发声。柔光模式余晖在音符结束后 1.2 秒内消退。每条彩线可查对应音符；同一条来源可能多次成声，点击显示最近一次对应，原画始终保留。</p><a id="score-link" target="_blank" rel="noopener">查看逐音符映射数据 ↗</a></aside>
+<audio id="audio" preload="auto"></audio>
+</main>
+<dialog id="about" aria-labelledby="about-title"><button id="about-close" class="close" aria-label="关闭题记与来源">×</button><p class="eyebrow">SCROLL UNFOLDING</p><h2 id="about-title">千古长卷，一卷成声</h2><p>择一卷山河，听一段千年。</p><p id="about-work">《清明上河图》 · 虹桥精华篇<br>北宋 · 张择端　 /　故宫博物院藏</p><p id="work-description">让中国经典绘画随着音乐徐徐展开。</p><p id="music-character"></p><p><a id="source-link" target="_blank" rel="noopener">图像来源 · Wikimedia Commons ↗</a><br><a id="license-link" target="_blank" rel="noopener">Public Domain Mark 1.0 ↗</a></p><p id="crop-note">本展截取虹桥、漕船与两岸市井，保留原作比例与方向，等比缩小并压缩。</p><button id="geometry-toggle" class="start" aria-pressed="false">画有其形，音有其序。</button><details><summary>关于这一卷的声音</summary><p>此卷使用独立的空间乐谱：从右向左读取真实轮廓顶点，横向位置决定起音，纵向高度决定五声音级，线条走向与长度决定叙事音级与时值。Blueprint 保留直接映射，Soul Symphony 加入轮廓走向与笛子呼应；两者均未套用 Photo 的固定和声与段落。打开“看见声音来源”可查看当前音符、来源路径与计算值。</p><p id="sample-credits" class="sample-credit">古筝：Pufermufin 实录，sparklecatta-lang 切片整理，CC0。笛子：Hypnotriod 单音采样，CC0。采用公开预览衍生的采样，做音高重采样与包络处理；本曲音符由画面生成。<br><a href="https://freesound.org/people/Pufermufin/sounds/396868/" target="_blank" rel="noopener">古筝原始录音 ↗</a> · <a href="https://github.com/sparklecatta-lang/XSXB-Band-Samples" target="_blank" rel="noopener">古筝切片库 ↗</a> · <a href="https://freesound.org/people/Hypnotriod/sounds/384954/" target="_blank" rel="noopener">笛子采样 ↗</a><br>这是当代数字诠释，不宣称复原宋代演奏。MIDI 导出保留音符，但外部播放器需另加载对应民族乐器采样。</p><p><a id="evidence-link" target="_blank" rel="noopener">生成记录 ↗</a>　<a id="midi-link" download>保存 MIDI ↓</a></p></details></dialog>
+<script>
+/* Source for the inline, isolated Scroll player. No Photo or book globals. */
+(()=>{'use strict';
+const $=id=>document.getElementById(id),root=$('exhibition'),audio=$('audio'),image=$('painting'),seek=$('seek');
+let manifest=null,score=null,paths=new Map(),ready=false,started=false,raf=0,hideTimer=0,loadTimer=0,attempt=0,modeAttempt=0;
+let dialogWasPlaying=false,pendingTime=null,pendingResume=false,activeSignature='',mapping=true,panelOpen=false,scoreView=false;
+let trailTime=-1,trailMode='',displayMode='lines',trailCursor=0,displaySources=new Map(),paintedPaths=new Set(),selectedSource=null;
+let workCatalog=null,currentWork=new URLSearchParams(location.search).get('work')||'qingming';
+const trailColors=['#efc454','#6de0d1','#c39aed','#ee937e','#a4d176'];
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const time=t=>`${Math.floor(Math.max(0,t)/60)}:${String(Math.floor(Math.max(0,t)%60)).padStart(2,'0')}`;
+const pitchName=p=>['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'][p%12]+(Math.floor(p/12)-1);
+const ns='http://www.w3.org/2000/svg';
+function svg(tag,attrs){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e}
+function duration(){return Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:0}
+function status(t){$('status').textContent=t}
+function scan(){const r=score?.reading||manifest?.reading||{start:1.2,span:45};return 1-clamp((audio.currentTime-r.start)/r.span)}
+// Opening takes 1.2 s; hold the fully opened painting for exactly 2 s.
+// Pan across the available image travel, rather than waiting for a centered
+// scan head to clear the viewport edge (which caused a long apparent freeze).
+function cameraProgress(now){const r=score?.reading||manifest?.reading||{start:1.2,span:45};const begin=1.2+2;return clamp((now-begin)/(r.start+r.span-begin))}
+function fail(t){ready=false;root.classList.add('error');$('start').disabled=$('play').disabled=seek.disabled=true;$('loading').hidden=true;$('retry').hidden=false;status(t);audio.pause();wake()}
+function sourcesOf(n){return n.contributing_sources?.length?n.contributing_sources:[{source:n.source,source_point:n.source_point}]}
+function drawSpatialScore(){
+ if(!score)return;
+ const canvas=$('spatial-score'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;
+ ctx.clearRect(0,0,w,h);
+ // Simplified display contours are an independently filtered image.
+ // Do not redraw the dense musical skeleton into the visual background.
+ let count=0;
+ for(const n of score.notes){
+  ctx.fillStyle=['#a67821','#287f7e','#8666ad','#b36550','#658345'][n.voice]||'#a67821';
+  const [x,y]=n.source_point;ctx.beginPath();ctx.ellipse(x*w,y*h,2.5,1.7,-.3,0,Math.PI*2);ctx.fill();count++;
+ }
+ canvas.dataset.points=String(count);canvas.dataset.notes=String(score.notes.length);
+ $('layer-caption').textContent=`${$('edition').value==='blueprint'?'Blueprint':'Soul Symphony'} · 淡墨为轮廓底图，彩线为乐谱来源 · ${count.toLocaleString()} 个音符各标一个主采样点`;
+}
+function renderScoreHead(active,now){
+ if(!scoreView)return;
+ const points=[svg('line',{x1:scan()*1000,x2:scan()*1000,y1:0,y2:1000,stroke:'#ad7731','stroke-width':2,'vector-effect':'non-scaling-stroke'})];
+ const lit=new Set();for(const n of active){for(const source of sourcesOf(n)){if(lit.has(source.source))continue;lit.add(source.source);const path=paths.get(source.source);if(path)points.push(svg('path',{d:path.points.map(([x,y],i)=>`${i?'L':'M'}${x*1000},${y*1000}`).join(' '),fill:'none',stroke:trailColors[n.voice]||trailColors[0],'stroke-width':2.2,'vector-effect':'non-scaling-stroke'}))}}
+ for(const n of active){for(const source of sourcesOf(n)){const [x,y]=source.source_point;points.push(svg('ellipse',{cx:x*1000,cy:y*1000,rx:1.1,ry:4,fill:trailColors[n.voice]||trailColors[0],stroke:'#344d3c','stroke-width':.5,'data-note':n.id,'data-source':source.source}))}}
+ $('score-live').replaceChildren(...points);$('score-live').dataset.time=String(now);
+}
+function updateTrail(now){
+ if(!score)return;
+ const canvas=$('coverage-played'),ctx=canvas.getContext('2d');
+ const reset=trailMode!==score.fingerprint||now<trailTime;
+ if(!reset&&now-trailTime<.08)return;
+ if(reset||displayMode!=='lines'){ctx.clearRect(0,0,canvas.width,canvas.height);displaySources.clear();paintedPaths.clear();trailCursor=0}
+ trailMode=score.fingerprint;
+ const notes=displayMode==='lines'?score.notes.slice(trailCursor):score.notes;
+ for(const n of notes){
+  if(n.start>now)break;
+  if(displayMode==='lines')trailCursor++;
+  const end=n.start+n.duration+(n.release||0);
+  if(displayMode==='instant'&&now>=end)continue;
+  if(displayMode==='soft'&&(end>=now||now-end>1.2))continue;
+  ctx.globalAlpha=displayMode==='soft'?(1-(now-end)/1.2)*.7:1;
+  for(const source of sourcesOf(n)){
+   const path=paths.get(source.source);if(!path)continue;
+   const existing=paintedPaths.has(source.source);displaySources.set(source.source,{n,source});if(existing&&displayMode==='lines')continue;paintedPaths.add(source.source);
+   ctx.shadowColor='#17221b';ctx.shadowBlur=manifest?.style?.contrast_halo&&displayMode!=='soft'?1.1:0;
+   ctx.beginPath();for(let i=0;i<path.points.length;i++){const [x,y]=path.points[i];if(i)ctx.lineTo(x*canvas.width,y*canvas.height);else ctx.moveTo(x*canvas.width,y*canvas.height)}
+   ctx.strokeStyle=trailColors[n.voice]||trailColors[0];ctx.lineWidth=displayMode==='soft'?9:(manifest?.style?.line_width||1.9);ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke();
+  }
+ }
+ ctx.globalAlpha=1;trailTime=now;canvas.dataset.paths=String(displaySources.size);
+}
+function renderMapping(){
+ if(!mapping)return;
+ const now=audio.currentTime,active=started&&score?score.notes.filter(n=>n.start<=now&&now<n.start+n.duration+(n.release||0)):[];
+ const signature=active.map(n=>n.id).join('|')+'|'+audio.paused+'|'+started+'|'+displayMode;
+ updateTrail(now);
+ renderScoreHead(active,now);
+ $('mini-map').setAttribute('aria-valuenow',String(Math.round((1-scan())*100)));
+ const cursor=$('mini-overlay').querySelector('[data-cursor]');if(cursor){cursor.setAttribute('x1',scan()*1000);cursor.setAttribute('x2',scan()*1000)}
+ if(signature===activeSignature)return;activeSignature=signature;
+ const main=[],mini=[],rows=[],activePaths=new Set();
+ for(const n of active){
+  const color=manifest?.id==='fuchun'?trailColors[n.voice]:n.instrument==='dizi'?'#9bf6dc':'#ffe18c';
+  for(const source of sourcesOf(n)){
+   const path=paths.get(source.source);if(!path||activePaths.has(source.source))continue;activePaths.add(source.source);
+   const d=path.points.map(([x,y],i)=>`${i?'L':'M'}${x*1000},${y*1000}`).join(' ');
+   const p=svg('path',{d,'data-note':n.id,'data-source':source.source});p.style.stroke=color;
+   if(manifest?.style?.active_width&&displayMode!=='soft')p.style.strokeWidth=String(manifest.style.active_width);
+   if(manifest?.style?.contrast_halo&&displayMode!=='soft')p.style.filter='drop-shadow(0 0 .7px #17221b)';
+   main.push(p);displaySources.set(source.source,{n,source});
+  }
+  mini.push(svg('circle',{cx:n.source_point[0]*1000,cy:n.source_point[1]*200,r:11,fill:color,stroke:'#173628','stroke-width':4}));
+  const row=document.createElement('div');row.className='source-row '+n.instrument;row.dataset.note=n.id;
+  const strong=document.createElement('strong');strong.textContent=`${n.instrument==='guzheng'?'古筝':'笛子'} · ${pitchName(n.pitch)} · ${n.source}`;
+  const line=document.createElement('div');line.textContent=`${n.source_sample?'骨架点 '+n.source_sample:'顶点 '+n.vertex_index} · y=${n.source_point[1].toFixed(3)} → 第 ${n.calculation.scale_index+1} 级 → MIDI ${n.pitch}`;
+  const onset=document.createElement('div');onset.textContent=`x=${n.source_point[0].toFixed(3)} → ${n.start.toFixed(2)} 秒起音 · ${n.duration.toFixed(2)} 秒`;
+  const detail=document.createElement('div');detail.className='mapping-note';detail.textContent=`走向 ${n.calculation.tangent_degrees.toFixed(1)}° · 同音汇聚 ${sourcesOf(n).length} 处来源 · ${audio.paused?'暂停定格':'正在发声'}`;
+  row.append(strong,line,onset,detail);if(rows.length<3)rows.push(row);
+ }
+ if(selectedSource&&selectedSource.n.start<=now){
+  const path=paths.get(selectedSource.id),d=path.points.map(([x,y],i)=>`${i?'L':'M'}${x*1000},${y*1000}`).join(' ');
+  const selected=svg('path',{d,'data-selected-source':selectedSource.id});selected.style.stroke='#fff5cf';selected.style.strokeWidth='4';main.push(selected);
+ }
+ $('geometry').replaceChildren(...main);
+ $('live-count').textContent=`${active.length} 个实响音符 · ${activePaths.size} 处当前来源 · ${displaySources.size} 条可查彩线`;
+ $('geometry').dataset.sources=String(activePaths.size);
+ $('mini-overlay').replaceChildren(svg('line',{'data-cursor':'true',x1:scan()*1000,x2:scan()*1000,y1:0,y2:200,stroke:'#ffe6aa','stroke-width':4}),...mini);
+ if(rows.length)$('active-notes').replaceChildren(...rows);else $('active-notes').textContent=!started?'展开并聆听后，在这里看见声音的来处。':audio.ended?'一卷既展，万象成声。':'此刻留白，等待下一条轮廓成声。';
+}
+function update(){
+ const d=duration(),p=d?clamp(audio.currentTime/d):0,open=started?clamp(audio.currentTime/1.2):1;
+ root.style.setProperty('--opening',String(started?.12+.88*open:1));root.style.setProperty('--p',String(p));
+ root.style.setProperty('--left-roll',`${18+22*Math.sqrt(1-p)}px`);root.style.setProperty('--right-roll',`${18+22*Math.sqrt(p)}px`);root.style.setProperty('--turn',`${p*1400}px`);
+ const w=image.naturalWidth/image.naturalHeight*$('viewport').clientHeight,v=$('viewport').clientWidth;
+ if(Number.isFinite(w)){$('track').style.width=`${w}px`;$('track').style.transform=`translate3d(${w>v?(v-w)*(1-cameraProgress(audio.currentTime)):0}px,0,0)`}
+ seek.value=String(Math.round(p*1000));seek.style.setProperty('--progress',`${p*100}%`);$('clock').textContent=`${time(audio.currentTime)} / ${time(d||48)}`;
+ $('poem').textContent=!started?'择一卷山河，听一段千年。':audio.ended||p>=.999?'一卷既展，万象成声。':audio.currentTime<4?'山河尚未展开，声音已在其中。':'千古长卷，一卷成声';renderMapping();
+}
+function tick(){update();if(!audio.paused&&!audio.ended)raf=requestAnimationFrame(tick);else raf=0}
+function wake(){root.classList.remove('immersed');clearTimeout(hideTimer);if(started&&!audio.paused&&!$('about').open&&!panelOpen)hideTimer=setTimeout(()=>{if(!root.contains(document.activeElement)||document.activeElement===document.body)root.classList.add('immersed')},3200)}
+function syncControls(){const playing=!audio.paused&&!audio.ended;root.classList.toggle('playing',playing);$('play').textContent=playing?'Ⅱ':'▶';$('play').setAttribute('aria-label',playing?'暂停音乐':audio.ended?'重新播放音乐':'播放音乐');if(!playing){cancelAnimationFrame(raf);raf=0;root.classList.remove('immersed')}else if(!raf)tick();activeSignature='';update();wake()}
+async function play(){if(!ready)return;try{if(audio.ended)audio.currentTime=0;await audio.play();status('');document.activeElement?.blur()}catch(_){status('音乐暂未开始，请再次点击播放。');wake()}}
+async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await root.requestFullscreen()}catch(_){status('当前窗口不支持全屏，已保留沉浸观看。')}}
+function enter(){if(!ready)return;started=true;root.classList.add('started');root.classList.toggle('show-geometry',mapping);$('invitation').hidden=true;$('transport').hidden=false;$('controls-hint').hidden=false;update();if(!document.fullscreenElement&&root.requestFullscreen)root.requestFullscreen().catch(()=>{});play()}
+function checkReady(){if(score&&image.complete&&image.naturalWidth>0&&duration()>0&&audio.readyState>=2){ready=true;clearTimeout(loadTimer);root.classList.remove('error');$('start').disabled=$('play').disabled=seek.disabled=false;$('edition').disabled=false;$('loading').hidden=true;$('retry').hidden=true;status('');if(pendingTime!==null){const t=pendingTime,resume=pendingResume;pendingTime=null;pendingResume=false;audio.currentTime=clamp(t,0,duration());if(resume)play()}update()}}
+async function json(url){const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error();return r.json()}
+async function chooseMode(id,retain=true){
+ const variant=manifest.variants.find(v=>v.id===id);if(!variant)throw Error();const token=++modeAttempt;
+ const oldTime=retain?audio.currentTime:0,resume=retain&&!audio.paused;ready=false;score=null;audio.pause();$('start').disabled=$('play').disabled=$('edition').disabled=seek.disabled=true;status('正在请出这一卷的乐章…');
+ clearTimeout(loadTimer);loadTimer=setTimeout(()=>{if(token===modeAttempt&&!ready)fail('此卷乐章加载较慢，请重新加载。')},20000);
+ try{const next=await json(variant.score);if(token!==modeAttempt)return;
+  if(!next.notes.length||next.notes.some(n=>!paths.has(n.source)))throw Error();score=next;activeSignature='';selectedSource=null;$('selected-source').hidden=true;
+  const c=next.coverage;$('coverage-stats').textContent=c?`${c.analysis_size[0]} × ${c.analysis_size[1]} 解析 · ${c.extracted_paths.toLocaleString()} 条轮廓 · ${c.skeleton_samples.toLocaleString()} 骨架点\n本版 ${c.audible_notes.toLocaleString()} 个实响音符，涉及 ${c.audible_paths.toLocaleString()} 条来源路径`:'正在读取骨架覆盖…';
+  $('evidence-link').href=variant.evidence;$('midi-link').href=variant.midi;$('score-link').href=variant.score;
+  $('edition').value=id;drawSpatialScore();pendingTime=oldTime;pendingResume=resume;audio.src=variant.audio;audio.load();checkReady();
+ }catch(_){if(token===modeAttempt)fail('此卷乐章未能加载，请重新加载。')}
+}
+async function load(){
+ const token=++attempt;++modeAttempt;clearTimeout(loadTimer);ready=false;score=null;audio.pause();$('start').disabled=$('play').disabled=true;$('loading').hidden=false;$('loading').textContent='正在请出长卷…';$('retry').hidden=true;root.classList.remove('error');status('');
+ loadTimer=setTimeout(()=>{if(token===attempt&&!ready)fail('画卷或音乐加载较慢，请重试。')},20000);
+ try{
+  if(!workCatalog){try{workCatalog=(await json('/museum/scroll/catalog.json')).works}catch(_){workCatalog=[{id:'qingming',title:'清明上河图',manifest:'/museum/scroll/manifest.json'}]}}
+  if(token!==attempt)return;
+  const work=workCatalog.find(w=>w.id===currentWork)||workCatalog[0];currentWork=work.id;
+  $('work-choice').replaceChildren(...workCatalog.map(w=>{const o=document.createElement('option');o.value=w.id;o.textContent=w.title;return o}));$('work-choice').value=currentWork;
+  const data=await json(work.manifest);if(token!==attempt)return;if(!data.variants||!data.image.startsWith('/museum/scroll/'))throw Error();manifest=data;
+  applyWork(data);
+  const geometry=await json(data.geometry);if(token!==attempt)return;paths=new Map(geometry.paths.map(p=>[p.id,p]));$('geometry').setAttribute('viewBox','0 0 1000 1000');
+  const canvas=$('coverage-played');canvas.width=Math.min(4096,geometry.width);canvas.height=Math.round(canvas.width*geometry.height/geometry.width);trailMode='';trailTime=-1;
+  $('spatial-score').width=canvas.width;$('spatial-score').height=canvas.height;
+  $('source-link').href=data.source.page;$('license-link').href=data.source.license_url;image.src=data.image;$('score-context').src=data.image;$('score-contours').src=data.contours||'/museum/scroll/major-contours.png';$('mini-image').src=data.cover||'/museum/scroll/cover.jpg';
+  $('edition').replaceChildren(...data.variants.map(v=>{const o=document.createElement('option');o.value=v.id;o.textContent=v.label;return o}));
+  await chooseMode('soul',false);
+ }catch(_){if(token===attempt)fail('长卷暂未请出，请重新加载。')}
+}
+function applyWork(data){
+ const artist=data.artist||'北宋 · 张择端',title=data.title||'清明上河图',subtitle=data.subtitle||'虹桥精华篇';
+ document.title=`${title} · 千古名卷 · Sonify`;root.setAttribute('aria-label',`${title}沉浸展卷`);
+ $('work-byline').textContent=`《${title}》 · ${artist} · ${subtitle}`;$('artist-mark').textContent=artist;
+ $('painting-caption').textContent=`${title} · ${subtitle}　 /　${data.collection}`;
+ $('work-description').textContent=data.description||'虹桥、漕船与两岸市井，随音乐徐徐展开。';$('music-character').textContent=data.music_character||'古筝与笛子演绎来自本卷真实轮廓的空间乐谱。';$('score-context').alt=`${title}淡墨底图`;$('score-contours').alt=`${title}筛选后的主要轮廓`;$('about-work').textContent=`《${title}》 · ${subtitle}\n${artist} / ${data.collection}`;$('crop-note').textContent=data.source.changes||'本展保留原作比例与方向，等比缩小并压缩。';
+ image.alt=`${artist}《${title}》${subtitle}`;$('mini-image').alt=`${title}全景与当前采样位置`;
+ const colors=data.style?.colors||['#efc454','#6de0d1','#c39aed','#ee937e','#a4d176'];trailColors.splice(0,5,...colors);
+ const strength=Math.round((data.style?.opacity||.72)*100);$('mask-strength').value=String(strength);root.style.setProperty('--mask-strength',String(strength/100));
+ root.style.setProperty('--ink',data.style?.ink||'#101d19');root.style.setProperty('--gold',data.style?.gold||'#c1a975');
+ const chapters=data.chapters||[{label:'虹桥初展',time:3.2},{label:'桥畔人间',time:18},{label:'漕船归岸',time:34}];
+ $('chapters').replaceChildren(...chapters.map(c=>{const b=document.createElement('button');b.textContent=c.label;b.onclick=()=>{if(!ready)return;audio.currentTime=c.time;if(!started)enter();else update();wake()};return b}));
+ trailMode='';trailTime=-1;selectedSource=null;$('selected-source').hidden=true;
+}
+$('work-choice').onchange=()=>{currentWork=$('work-choice').value;started=false;root.classList.remove('started','immersed');$('invitation').hidden=false;$('transport').hidden=true;$('controls-hint').hidden=true;scoreView=false;root.classList.remove('score-view');$('layer-toggle').textContent='几何释音';$('layer-toggle').setAttribute('aria-pressed','false');setMapping(false);history.replaceState(null,'',`/scroll?work=${encodeURIComponent(currentWork)}`);load()};
+// The inspector never controls visibility of the default source lines.
+function setMapping(value){panelOpen=value;root.classList.toggle('mapping-on',value);$('mapping-panel').hidden=!value;$('mapping-toggle').setAttribute('aria-expanded',String(value));$('geometry-toggle').setAttribute('aria-pressed',String(value));activeSignature='';update();wake()}
+function setOverlay(value){mapping=value;root.classList.toggle('show-geometry',value);$('pure-toggle').setAttribute('aria-pressed',String(!value));$('pure-toggle').textContent=value?'纯原画':'恢复彩线';if(!value){scoreView=false;root.classList.remove('score-view');$('layer-toggle').setAttribute('aria-pressed','false');$('layer-toggle').textContent='几何释音';setMapping(false)}trailMode='';activeSignature='';update();wake()}
+$('pure-toggle').onclick=()=>setOverlay(!mapping);
+$('layer-toggle').onclick=()=>{if(!mapping)setOverlay(true);scoreView=!scoreView;root.classList.toggle('score-view',scoreView);$('layer-toggle').setAttribute('aria-pressed',String(scoreView));$('layer-toggle').textContent=scoreView?'返回原画':'几何释音';activeSignature='';update();wake()};
+let drag=null;
+const panel=$('mapping-panel'),handle=$('panel-handle');
+handle.onpointerdown=event=>{if(event.button!==0)return;const box=panel.getBoundingClientRect();drag={x:event.clientX,y:event.clientY,left:box.left,top:box.top};handle.setPointerCapture(event.pointerId);event.preventDefault()};
+handle.onpointermove=event=>{if(!drag)return;panel.style.left=clamp(drag.left+event.clientX-drag.x,8,Math.max(8,root.clientWidth-panel.offsetWidth-8))+'px';panel.style.top=clamp(drag.top+event.clientY-drag.y,8,Math.max(8,root.clientHeight-panel.offsetHeight-8))+'px';panel.style.right='auto';panel.style.bottom='auto'};
+handle.onpointerup=handle.onpointercancel=()=>{drag=null};
+handle.onkeydown=event=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();const b=panel.getBoundingClientRect();panel.style.left=clamp(b.left+(event.key==='ArrowRight'?20:event.key==='ArrowLeft'?-20:0),8,Math.max(8,root.clientWidth-panel.offsetWidth-8))+'px';panel.style.top=clamp(b.top+(event.key==='ArrowDown'?20:event.key==='ArrowUp'?-20:0),8,Math.max(8,root.clientHeight-panel.offsetHeight-8))+'px';panel.style.right='auto';panel.style.bottom='auto'};
+$('mask-strength').oninput=()=>root.style.setProperty('--mask-strength',String(Number($('mask-strength').value)/100));
+$('mapping-style').onchange=()=>{displayMode=$('mapping-style').value;root.dataset.mappingStyle=displayMode;trailMode='';activeSignature='';selectedSource=null;$('selected-source').hidden=true;update()};
+$('track').onclick=event=>{
+ if(!mapping||!score)return;
+ const box=$('track').getBoundingClientRect(),px=event.clientX-box.left,py=event.clientY-box.top;
+ let best=null,distance=10;
+ if(scoreView){for(const n of score.notes){for(const source of sourcesOf(n)){const [x,y]=source.source_point,d=Math.hypot(px-x*box.width,py-y*box.height);if(d<distance){distance=d;best={id:source.source,n,source}}}}}
+ else for(const [id,record] of displaySources){const points=paths.get(id)?.points||[];
+  for(let i=1;i<points.length;i++){
+   const ax=points[i-1][0]*box.width,ay=points[i-1][1]*box.height,bx=points[i][0]*box.width,by=points[i][1]*box.height;
+   const dx=bx-ax,dy=by-ay,t=clamp(((px-ax)*dx+(py-ay)*dy)/(dx*dx+dy*dy||1));
+   const d=Math.hypot(px-ax-t*dx,py-ay-t*dy);if(d<distance){distance=d;best={id,...record}}
+  }
+ }
+ if(!best)return;selectedSource=best;activeSignature='';setMapping(true);
+ const {n,source}=best,p=source.source_point;
+ $('selected-source').hidden=false;
+ $('selected-detail').textContent=`彩线 ${best.id} → 音符 ${n.id} · ${pitchName(n.pitch)} · ${n.instrument==='dizi'?'笛子':'古筝'}\nx=${p[0].toFixed(4)}，y=${p[1].toFixed(4)} · ${n.start.toFixed(2)} 秒起音 · 时值 ${n.duration.toFixed(2)} 秒\n此音符汇聚 ${sourcesOf(n).length} 处来源；这条彩线是其中之一。`;
+ update();
+};
+$('revisit-source').onclick=()=>{if(ready&&selectedSource){audio.currentTime=selectedSource.n.start;update();wake()}};
+$('mapping-toggle').onclick=()=>setMapping(!panelOpen);$('mapping-close').onclick=()=>setMapping(false);$('geometry-toggle').onclick=()=>{setMapping(!panelOpen);$('about').close()};
+$('edition').onchange=()=>chooseMode($('edition').value);
+$('mini-map').onclick=event=>{if(!ready)return;const box=event.currentTarget.getBoundingClientRect(),x=clamp((event.clientX-box.left)/box.width);audio.currentTime=score.reading.start+(1-x)*score.reading.span;update();wake()};
+$('mini-map').onkeydown=event=>{if(!ready||!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();audio.currentTime=clamp(audio.currentTime+(event.key==='ArrowLeft'?2:-2),0,duration());update()};
+$('start').onclick=enter;$('fullscreen').onclick=fullscreen;$('play').onclick=()=>audio.paused?play():audio.pause();$('replay').onclick=()=>{if(ready){audio.currentTime=0;update();play()}};
+seek.oninput=()=>{if(ready&&duration()){audio.currentTime=duration()*Number(seek.value)/1000;update();wake()}};
+$('volume').oninput=()=>{audio.volume=Number($('volume').value);if(audio.volume>0)audio.muted=false;updateMute()};
+function updateMute(){$('mute').setAttribute('aria-pressed',String(audio.muted));$('mute').setAttribute('aria-label',audio.muted?'取消静音':'静音');$('mute').textContent=audio.muted?'♩':'♫'}
+$('mute').onclick=()=>{audio.muted=!audio.muted;updateMute()};audio.volume=.7;
+$('retry').onclick=load;image.addEventListener('load',checkReady);image.addEventListener('error',()=>fail('画卷未能加载，请重试。'));
+audio.addEventListener('error',()=>fail('音乐未能加载，请重新加载后聆听。'));
+['loadedmetadata','canplay','durationchange'].forEach(e=>audio.addEventListener(e,checkReady));['play','pause','ended'].forEach(e=>audio.addEventListener(e,syncControls));['seeked','seeking','timeupdate'].forEach(e=>audio.addEventListener(e,update));
+audio.addEventListener('waiting',()=>{if(started)status('音乐正在缓冲，画卷将随声音继续。')});audio.addEventListener('playing',()=>{status('');syncControls()});
+$('about-open').onclick=()=>{dialogWasPlaying=!audio.paused;audio.pause();$('about').showModal();wake()};$('about-close').onclick=()=>$('about').close();$('about').addEventListener('close',()=>{if(dialogWasPlaying)play();dialogWasPlaying=false});
+document.addEventListener('keydown',event=>{
+ if($('about').open||event.target.closest('textarea,[contenteditable=true],input:not([type=range])'))return;
+ if(event.code==='Space'){
+  if(event.target.closest('select'))return;
+  event.preventDefault();if(event.repeat)return;
+  if(!started){if(ready)enter();return}
+  audio.paused?play():audio.pause();wake();return;
+ }
+ if(event.target.matches('input,button,a,summary,select')||event.target===$('mini-map')||!started)return;
+ if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)&&ready){event.preventDefault();audio.currentTime=event.key==='Home'?0:event.key==='End'?duration():clamp(audio.currentTime+(event.key==='ArrowRight'?5:-5),0,duration());update()}else if(event.key.toLowerCase()==='f')fullscreen();wake()
+});
+root.addEventListener('pointermove',wake);root.addEventListener('pointerdown',wake);root.addEventListener('focusin',wake);
+document.addEventListener('fullscreenchange',()=>{$('fullscreen').textContent=document.fullscreenElement?'退出全屏 ⛶':'全屏观卷 ⛶';$('fullscreen').setAttribute('aria-label',document.fullscreenElement?'退出全屏':'进入全屏');update();wake()});
+new ResizeObserver(update).observe($('viewport'));window.addEventListener('pagehide',()=>{audio.pause();cancelAnimationFrame(raf);clearTimeout(hideTimer);clearTimeout(loadTimer)});window.addEventListener('pageshow',e=>{if(e.persisted){update();syncControls()}});load();
+})();
+
+</script>
+</body></html>

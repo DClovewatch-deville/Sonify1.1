@@ -1,0 +1,32 @@
+[
+  {
+    "test": "classical-tests.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"passed\",\n  \"matrixCases\": 1500,\n  \"checks\": [\n    \"style x form x bars x root x density matrix\",\n    \"ternary/rondo structure and A-reprise\",\n    \"geometry -> register and contour sensitivity\",\n    \"bpm/instrument/reverb/brightness/humanize/root controls\",\n    \"density affects texture without breaking form\",\n    \"empty/malformed input and clamping\",\n    \"path-count and point-count bounds\",\n    \"determinism under cloning and repetition\",\n    \"harmonic plan completeness and V-I close\",\n    \"literal mode isolation\"\n  ]\n}\n"
+  },
+  {
+    "test": "color-tests.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"passed\",\n  \"checks\": [\n    \"hue sign: red/orange/yellow warm, blue/cyan cool, green neutral\",\n    \"neutral greys/whites/blacks abstain from the warmth vote\",\n    \"luminance and saturation track the pixels\",\n    \"alpha is composited on white, not dropped\",\n    \"the dominant area drives the reading\",\n    \"palette is valid, deduplicated and bounded at five\",\n    \"large images are spread-sampled, bounded, and still correct\",\n    \"invalid buffers degrade to a neutral colour\",\n    \"extraction is deterministic\"\n  ]\n}\n"
+  },
+  {
+    "test": "music-tests-audio.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"passed\",\n  \"method\": \"instrumented Web Audio API contract tests; not native rendering or listening\",\n  \"checks\": [\n    \"audio unlock\",\n    \"sample decode/cache\",\n    \"pause clock\",\n    \"seek sample offset\",\n    \"mute\",\n    \"timer ownership\",\n    \"loop\",\n    \"async cancellation\",\n    \"preview and disposal\",\n    \"stereo PCM WAV encoding and clipping ceiling\",\n    \"decode-error fallback\"\n  ]\n}\n"
+  },
+  {
+    "test": "music-tests.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"passed\",\n  \"compositions\": 432,\n  \"checks\": [\n    \"determinism\",\n    \"valid events\",\n    \"source traceability\",\n    \"four-track polyphony budgets\",\n    \"melody intervals\",\n    \"tonic endings\",\n    \"literal mode\",\n    \"malformed input\",\n    \"geometry sensitivity\",\n    \"type-1 MIDI decoding and complete note-off pairing\"\n  ]\n}\n"
+  },
+  {
+    "test": "sketch-tests.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"passed\",\n  \"checks\": 12,\n  \"pencilMeanInk\": 20.631197916666668,\n  \"outlineMeanInk\": 10.746458333333333,\n  \"sketchToMusicPaths\": 2\n}\n"
+  },
+  {
+    "test": "vision-tests.cjs",
+    "exit_code": 0,
+    "output": "{\n  \"passed\": 9,\n  \"checks\": [\n    \"blank rejection\",\n    \"line extraction\",\n    \"path budget\",\n    \"normalized bounds\",\n    \"aspect ratio\",\n    \"endpoint-preserving resampling\",\n    \"open Fourier reflection\",\n    \"384px dimension cap\",\n    \"offset object aligned to full source image\"\n  ],\n  \"sample\": {\n    \"inputWidth\": 100,\n    \"inputHeight\": 100,\n    \"width\": 100,\n    \"height\": 100,\n    \"mode\": \"line\",\n    \"detail\": 5,\n    \"maxPaths\": 3,\n    \"candidates\": 1,\n    \"kept\": 1,\n    \"discarded\": 0,\n    \"pointCount\": 5,\n    \"emptyReason\": null,\n    \"coordinateFrame\": \"full-image\",\n    \"framePadding\": 0.08,\n    \"elapsedMs\": 5\n  }\n}\n"
+  }
+]

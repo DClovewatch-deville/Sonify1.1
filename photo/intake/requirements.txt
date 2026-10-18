@@ -1,0 +1,2 @@
+qrcode[pil]==8.2
+# Image processing reuses the existing experiment/vendor OpenCV and NumPy.

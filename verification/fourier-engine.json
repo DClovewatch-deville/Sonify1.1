@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "cases": 108,
+  "sampledInstruments": [
+    "piano",
+    "violin",
+    "cello",
+    "flute",
+    "koto",
+    "shakuhachi",
+    "guitar",
+    "harp",
+    "epiano",
+    "clarinet",
+    "vibes",
+    "marimba",
+    "bass"
+  ],
+  "scope": "Node composition, cadence, sample inventory and playback/export event contract; no browser audio audition"
+}

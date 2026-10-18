@@ -1,0 +1,10 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const code=fs.readFileSync(__dirname+'/ui/soul_hero.js','utf8');const c={};vm.createContext(c);
+vm.runInContext(code.slice(code.indexOf('function traceFraction'),code.indexOf('let soulFocus')),c);
+const pts=[[0,0],[.1,0],[1,0]];
+assert.equal(c.traceFraction(pts,0).length,0);
+assert.equal(c.traceFraction(pts,1).length,3);
+assert.ok(Math.abs(c.traceFraction(pts,.5).at(-1)[0]-.5)<1e-9,'trace uses path length, not vertex count');
+assert.ok(Math.abs(c.traceFraction([[0,0],[0,1],[1,1]],.75).at(-1)[0]-.5)<1e-9,'curve bends preserved');
+assert.equal(c.traceFraction([],0.5).length,0);
+console.log('5 geometry tracing checks passed');

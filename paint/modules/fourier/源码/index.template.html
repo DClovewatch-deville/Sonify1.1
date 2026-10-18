@@ -1,0 +1,295 @@
+<!doctype html>
+<html class="app-booting" lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' blob:; style-src 'unsafe-inline'; img-src data: blob:; worker-src blob:; connect-src 'none'; media-src blob: data:; font-src data:;"><style>html.app-booting{background:#faf9f5}html.app-booting body{visibility:hidden}html.app-booting::after{content:attr(data-boot-message);position:fixed;inset:0;display:grid;place-items:center;color:#426d5d;font:16px system-ui;background:#faf9f5;z-index:2147483647}</style><script>document.documentElement.dataset.bootMessage='Sonify paint with Fourier · 正在准备创作空间…';if('scrollRestoration' in history)history.scrollRestoration='manual';window.addEventListener('error',()=>{if(document.documentElement.classList.contains('app-booting'))document.documentElement.dataset.bootMessage='加载未完成，请重新打开完整的离线文件。';});</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="上传照片自动提取主体，生成带内部细节的简笔画，再用傅里叶周转圆与音乐重新演绎。"><title>Sonify paint with Fourier · 音乐实验 V4.31.performance 完全离线版</title><style>
+:root{color-scheme:dark;--bg:#f5f4ef;--panel:#fffefa;--line:#d4ded7;--muted:#627b78;--text:#254c4a;--mint:#327b65;--orange:#b47c36}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 "Microsoft YaHei",system-ui,sans-serif}button,input,select{font:inherit}button,select{border:1px solid var(--line);background:#edf1e8;color:var(--text);border-radius:8px;padding:9px 14px;cursor:pointer}button:hover{border-color:var(--mint);background:#e2eadd}button:disabled{opacity:.35;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--mint);outline-offset:4px}button.primary{background:var(--mint);color:#14372d;border-color:var(--mint);font-weight:700}header{max-width:1480px;margin:auto;padding:26px 34px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700}.mark{width:32px;height:32px;border:1px solid var(--mint);border-radius:50%;position:relative}.mark:after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--mint);border-radius:50%;right:-4px;top:2px}.brand span small{font-size:11px;color:var(--muted);font-weight:400;letter-spacing:2px;margin-left:12px}.topnote{color:var(--muted);font-size:12px}main{max-width:1480px;margin:auto;padding:26px 34px}.intro{display:flex;align-items:end;justify-content:space-between;margin-bottom:24px;gap:20px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:2px}h1{font-size:30px;line-height:1.35;margin:7px 0 8px;font-weight:600}p{margin:0;color:var(--muted)}.chip{border:1px solid var(--line);border-radius:30px;padding:6px 13px;color:var(--mint);white-space:nowrap;font-size:12px}.workspace{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}.panelhead{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line);gap:10px}.panelhead strong{font-size:15px;font-weight:500}.number{font:11px monospace;color:var(--mint);margin-right:9px}.minor{font-size:11px;color:var(--muted)}.canvaswrap{position:relative;height:390px;background:#f5f7f0}canvas{display:block;width:100%;height:100%}#draw{touch-action:none;cursor:crosshair}.canvasbadge{position:absolute;left:16px;top:14px;pointer-events:none;font:11px monospace;color:#718995}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;pointer-events:none;color:var(--muted)}.empty b{font-size:23px;color:var(--mint);font-weight:400}.toolbar{display:flex;gap:8px;padding:14px 16px;border-top:1px solid var(--line);align-items:center;flex-wrap:wrap}.toolbar button{padding:7px 11px;font-size:12px}.spacer{flex:1}.settings{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:26px;margin-top:18px;padding:23px}.settings>div+div{border-left:1px solid var(--line);padding-left:26px}.labelrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.value{color:var(--mint);font:24px monospace}.value small{font-size:12px;color:var(--muted)}input[type=range]{width:100%;accent-color:var(--mint);cursor:pointer}input[type=checkbox]{accent-color:var(--mint);width:15px;height:15px}label.toggle{display:flex;gap:8px;align-items:center;margin:8px 0;color:#456560}.rangelabel{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}.presets{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.presets button{padding:6px 12px;font-size:12px}.explainer{display:flex;gap:28px;margin-top:25px;padding:0 4px;color:var(--muted);font-size:12px}.explainer div{flex:1}.explainer b{font-weight:500;color:#d2dfe5;display:block;margin-bottom:4px}footer{display:flex;justify-content:space-between;gap:15px;font-size:11px;color:#6f8592;margin-top:26px}a{color:#98b4c2}#status{color:var(--mint);font-size:12px;min-height:20px;margin-top:10px}.legend{display:flex;gap:14px;color:var(--muted);font-size:11px}.dot{display:inline-block;border-radius:50%;width:6px;height:6px;background:var(--mint);margin-right:5px}.dot.orange{background:var(--orange)}@media(min-width:1500px){.canvaswrap{height:450px}}@media(max-width:850px){header,main{padding:20px}.workspace{grid-template-columns:1fr}.canvaswrap{height:340px}.settings{grid-template-columns:1fr 1fr}.settings>div:last-child{border-left:0;padding-left:0;grid-column:1/-1}.intro .chip,.topnote{display:none}h1{font-size:26px}.explainer{gap:15px}footer{flex-wrap:wrap}}@media(max-width:480px){.settings{grid-template-columns:1fr;gap:18px}.settings>div+div{padding:0;border:0}.brand span small{display:none}.explainer{flex-direction:column}.canvaswrap{height:300px}}
+
+.ai-panel{padding:24px;margin-bottom:20px}.ai-panel h2{font-size:20px;margin:0}.ai-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.ai-pill{background:#29463c;color:#327b65;border-radius:20px;padding:5px 12px;font-size:11px}.ai-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0}.ai-upload{background:var(--mint);color:#163b2e;border-radius:8px;padding:9px 14px;font-weight:600;cursor:pointer}.ai-upload input{position:absolute;width:1px;height:1px;opacity:0}.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ai-view{background:#0b1318;border:1px solid #33454f;border-radius:10px;overflow:hidden}.ai-view header{padding:10px 14px;font-size:12px;display:flex;justify-content:space-between}.ai-view canvas{width:100%;height:auto;aspect-ratio:4/3;touch-action:none}.ai-view #aiSource{cursor:crosshair}.ai-status{padding:12px 14px;background:#f5f7f0;border-radius:8px;color:var(--mint);min-height:48px}.ai-hint{font-size:12px;margin-top:8px}.ai-actions button[aria-pressed=true]{border-color:var(--mint);background:#29463c}.legacy{margin:20px 0}.legacy>summary{cursor:pointer;padding:12px;color:var(--muted)}.ai-advanced{margin-top:12px;color:var(--muted);font-size:12px}.ai-advanced summary{cursor:pointer}.ai-advanced a{color:var(--mint)}.ai-progress{width:100%;height:5px;accent-color:var(--mint)}.download-app{color:var(--mint);font-size:12px}.ai-actions label{font-size:12px}.ai-empty{color:var(--muted)}@media(max-width:700px){.ai-grid{grid-template-columns:1fr}.ai-panel{padding:16px}.ai-top{align-items:flex-start}.ai-pill{white-space:nowrap}.ai-actions{gap:8px}.ai-actions button,.ai-actions select{padding:8px 10px}header,main{padding:16px}.intro{margin-bottom:16px}}
+</style></head><body>
+<header><div class="brand"><i class="mark"></i><span>Sonify paint with Fourier<small>FOURIER DRAWING STUDIO</small></span></div><div class="topnote">一条线，无数种旋转的可能。</div></header>
+<main><section class="intro"><div><div class="eyebrow">DRAW · DECOMPOSE · RECREATE</div><h1>一张照片，一幅会唱歌的简笔画。</h1><p>上传即可自动寻找主体、生成简笔画并放入画布。照片只在你的设备上处理。</p></div><span class="chip">● 音乐实验 · V4.31.performance · 完全离线版</span></section>
+<section class="panel ai-panel" aria-label="照片主体提取">
+ <div class="ai-top"><div><div class="eyebrow">PHOTO TO LINE ART</div><h2>先画完整，再画清楚</h2></div><span class="ai-pill">V4.31.performance · 自动简笔画</span></div>
+ <p class="ai-hint">自动检查主体与相连部件，优先保留外形、内部边界和闭合特征，再添加纹理。识别较慢时请耐心等待。</p>
+ <div class="ai-actions"><label>转换范围 <select id="aiScope"><option value="subject">自动主体简笔画</option><option value="whole">整张图片线稿 · 含背景</option></select></label><label>精度与速度 <select id="aiQuality"><option value="fast">快速 · 720 像素</option><option value="balanced" selected>均衡 · 960 像素</option><option value="fine">精细 · 1440 像素</option></select></label></div><p class="ai-hint">整图模式保留背景与多个物体，无需等待主体识别。新增颜色边界与细线保留。优先用均衡档；浅线较多时选择精细，纹理过密时减少细节。</p><div class="ai-actions"><label class="ai-upload">＋ 上传照片<input id="aiFile" aria-label="上传真实照片" type="file" accept="image/png,image/jpeg,image/webp"></label><button id="aiSample">试用猫图</button><button id="aiFlower">试用花朵</button><label>模型档次 <select id="aiTier"><option value="light">轻量 · 权重约 14 MB</option><option value="full">完整精度 · 权重约 40 MB</option></select></label><button id="aiLoad">准备内置模型</button><button id="aiCancel" disabled>停止</button></div>
+ <div class="ai-status" id="aiStatus" role="status" aria-live="polite">先上传照片或试用猫图。模型和运行组件已全部内置，首次使用也不需要联网。</div><progress id="aiProgress" class="ai-progress" hidden></progress>
+ <div class="ai-actions"><button id="aiAuto" class="primary" disabled>重新自动生成</button><label>细节 <select id="aiDetail"><option value="1" selected>基础线条</option><option value="3">基础 + 少量细节</option><option value="5">基础 + 更多细节</option><option value="0">仅外形</option></select></label></div><details class="ai-advanced"><summary>选错主体？展开手动修正</summary><div class="ai-actions"><button id="aiPositive" aria-pressed="true">＋ 补选主体</button><button id="aiNegative" aria-pressed="false">－ 排除背景</button><button id="aiUndo" disabled>撤销点选</button><button id="aiReset" disabled>清空选区</button><button id="aiRun" disabled>重新识别</button><label>候选 <select id="aiCandidate" disabled><option>识别后可选</option></select></label></div></details>
+ <div class="ai-grid"><div class="ai-view"><header><span>01 / 原图与选区</span><span>绿色保留 · 红点排除</span></header><canvas id="aiSource" width="800" height="600" aria-label="点选主体画布"></canvas></div><div class="ai-view"><header><span>02 / 线稿预览</span><span>外形 + 内部结构</span></header><canvas id="aiPreview" width="800" height="600" aria-label="线稿预览"></canvas></div></div>
+ <div class="ai-actions"><label>平滑 <input id="aiSmooth" type="range" min="0" max="3" value="1" style="width:85px;vertical-align:middle"></label><button class="primary" id="aiApply" disabled>放入画布</button><button id="aiListen" disabled>♫ 放入并试听</button><button id="aiSVG" disabled>下载 SVG</button><button id="aiPNG" disabled>下载 PNG</button></div>
+ <p class="ai-hint" id="aiStats">完成后自动放入下方画布。点击“播放音乐”即可听见它。</p>
+ <details class="ai-advanced"><summary>离线使用说明</summary><p>本文件已包含轻量识别模型、运行组件、示例图片和全部绘图音乐功能。双击用最新版 Edge 或 Chrome 打开即可；不需要安装、不需要启动本地服务，也不需要联网。可直接把整个 HTML 文件复制给朋友。图片只在本机处理。</p><p>完整精度模型未包含在此离线包中；内置轻量模型与网页版默认档相同。首次打开文件及识别大图可能稍慢。保留页面打开，等待完成即可。</p></details>
+</section>
+<section class="panel" style="padding:18px 20px;margin-bottom:18px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><button class="primary" id="musicPlay">♫ 播放音乐</button><label>速度 <output id="bpmValue">72</output> BPM <input id="bpm" type="range" min="48" max="108" value="72" style="width:130px;vertical-align:middle"></label><label>音量 <input id="volume" aria-label="音乐音量" type="range" min="0" max="100" value="100" style="width:100px;vertical-align:middle"></label><label>丰富度 <select id="richness"><option value="simple">简洁</option><option value="balanced" selected>舒缓</option><option value="rich">丰富</option></select></label></div><div class="ai-actions"><label>主奏乐器 <select id="instrument"><option value="auto">随风格自动配器</option><option value="piano">三角钢琴</option><option value="epiano">电钢琴</option><option value="clarinet">单簧管</option><option value="vibes">颤音琴</option><option value="marimba">马林巴</option><option value="bass">低音提琴</option><option value="violin">小提琴</option><option value="cello">大提琴</option><option value="flute">长笛</option><option value="koto">日本筝 Koto</option><option value="shakuhachi">尺八</option><option value="guitar">尼龙吉他</option><option value="harp">竖琴</option></select></label><label>风格 <select id="style"><option value="oriental">东方风韵 · 尺八与筝</option><option value="strings">弦乐合鸣 · 提琴与竖琴</option><option value="chamber">室内小景 · 长笛与钢琴</option><option value="lyrical" selected>钢琴叙事 · 长短乐句</option><option value="jazz">微醺摇摆 · 电钢琴</option><option value="woodland">林间轻舞 · 马林巴</option><option value="minimal">极简</option><option value="waltz">圆舞曲</option><option value="pulse">律动</option></select></label></div><p class="minor">采样乐器合奏 · 主奏、和声、低音与点缀分工。图形影响密度与衔接，乐曲含引入、发展和收束。</p><div class="ai-actions"><label>乐曲长度 <select id="songLength"><option value="auto" selected>自动 · 根据图案安排</option><option value="4">一乐章 · 4 小节</option><option value="8">二乐章 · 8 小节</option><option value="12">适中 · 12 小节</option><option value="16">舒展 · 16 小节</option><option value="24">长篇 · 24 小节</option></select></label><span id="durationInfo" class="minor"></span></div><p id="sampleInfo" role="status" class="minor">13 种内置采样乐器 · 首次演奏会准备所需音符，无需联网。</p><div id="musicInfo" role="status" style="color:var(--mint);margin-top:10px">选择风格与主奏，点击播放 · 内置采样乐器合奏 · 自动安排乐曲长度</div><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:16px"><label>音乐情感 <select id="mood"><option value="auto">跟随图片冷暖</option><option value="warm">温暖 · 明亮</option><option value="cool">清凉 · 沉静</option><option value="neutral">中性 · 平和</option></select></label><span id="toneInfo" class="minor" role="status">未载入彩色图片 · 平和</span></div><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px"><label>GIF 清晰度 <select id="gifSize"><option value="320" selected>轻巧 · 320px</option><option value="480">清晰 · 480px</option></select></label><button id="saveGif">保存绘图 GIF</button><button class="primary" id="saveVideo">保存带音乐视频</button><button id="saveWav">保存音乐 WAV</button><button id="cancelExport" hidden>取消导出</button></div><p id="exportInfo" role="status" class="minor">视频含音乐，按一轮演奏实时录制，请保持页面在前台。GIF 无声；WAV 保存音乐。全部在本机生成。</p><div id="beats" style="display:flex;gap:5px;margin-top:12px" aria-label="乐句进度"></div><p class="minor" style="margin-top:10px">主要轮廓塑造旋律，次要笔画点缀伴奏。不同乐句采用长短音、留白与应答；圆的旋转与绘图共享音乐时钟。</p></section><details class="legacy"><summary>文字与简笔画</summary><section class="panel" style="padding:18px 20px;margin-bottom:18px"><label for="textInput" style="display:block;margin-bottom:8px">文字作曲 <span class="minor">中文、英文、数字 · 最多 24 个字符</span></label><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><textarea id="textInput" rows="2" placeholder="输入你的名字、一句心情，例如：你好，音乐" style="flex:1;min-width:180px;resize:vertical;background:#f5f7f0;color:#254c4a;border:1px solid #425862;border-radius:8px;padding:10px;font:inherit">你好</textarea><button id="textGenerate">生成文字</button><button id="textListen" class="primary">♫ 生成并试听</button></div><p id="textInfo" role="status" class="minor" style="margin-top:8px">自动换行、缩放并居中；音乐由文字轮廓生成。Ctrl / ⌘ + Enter 快速试听。</p></section><section class="panel" style="padding:18px 20px;margin-bottom:18px"><label for="sketchFile" style="display:block;margin-bottom:10px">上传简笔画 <span class="minor">PNG / JPG / WebP · 最大 10 MB · 图片仅在本机处理</span></label><div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><input type="file" id="sketchFile" accept="image/png,image/jpeg,image/webp" style="max-width:100%"><label>线条识别 <input id="inkThreshold" aria-label="线条识别阈值" type="range" min="40" max="240" value="170" style="width:100px;vertical-align:middle"></label><label><input type="checkbox" id="invertInk">黑底白线</label><button id="extractSketch" disabled>重新提取轮廓</button></div><p class="minor" id="sketchInfo" role="status" style="margin-top:10px">选择图片后自动生成；推荐干净背景、清晰线条的简笔画。向右调可保留更浅的线条，点击重新提取生效。</p></section></details><section class="panel" style="margin:20px auto;padding:20px;max-width:1100px"><label>绘图方式 <select id="multiMode"><option value="multi">多组协作 · 推荐复杂图片</option><option value="single">单组绘制 · 对比旧版</option></select></label><p id="multiInfo" aria-live="polite"></p><p>每条有效笔画独立重建，同时完成整幅画；开口线条不会被强行闭合。圆圈只展示其中四组，所有笔画都参与重建。音乐优先从较长、跨度较大的轮廓生成旋律，短线条承担伴奏，保持统一和声。</p></section><section class="workspace"><div class="panel"><div class="panelhead"><strong><span class="number">01</span>你的画布</strong><span class="minor">鼠标 / 触控绘制</span></div><div class="canvaswrap"><canvas id="draw" aria-label="自由绘图画布"></canvas><span class="canvasbadge">INPUT / FREEHAND</span><div class="empty" id="empty" hidden><b>从一笔开始</b><span>按住并拖动画出轮廓</span></div></div><div class="toolbar"><button id="undo">↶ 撤销</button><button id="redo">↷ 重做</button><button id="clear">清空</button><span class="spacer"></span><span class="minor" id="strokeCount"></span></div></div>
+<div class="panel"><div class="panelhead"><strong><span class="number">02</span>圆圈正在重画</strong><div class="legend"><span><i class="dot"></i>轨迹</span><span><i class="dot orange"></i>笔尖</span></div></div><div class="canvaswrap"><canvas id="result" aria-label="傅里叶周转圆动画"></canvas><span class="canvasbadge">OUTPUT / EPICYCLES</span></div><div class="toolbar"><button id="play" class="primary">Ⅱ 暂停</button><button id="restart">↻ 重新播放</button><span class="spacer"></span><button id="export">↓ 保存图片</button></div></div></section>
+<section class="panel settings"><div><div class="labelrow"><label for="count">重建精度 / 圆数量</label><output class="value" id="countValue">256 <small>/ 1024</small></output></div><input id="count" type="range" min="1" max="1024" value="256"><div class="rangelabel"><span>更简洁</span><span>更贴近原图</span></div><p class="minor" style="margin-top:9px">多组模式下，精度同时作用于每条笔画；调高可保留更多细节。</p></div><div><div class="labelrow"><label for="speed">演奏速度 · 绘图同步</label><output class="value" id="speedValue">1.6<small> ×</small></output></div><input id="speed" aria-label="演奏速度" type="range" min="0.5" max="2" step="0.05" value="1.6"><div class="rangelabel"><span>慢慢观察</span><span>加速旋转</span></div><label class="toggle"><input type="checkbox" id="loop" checked>循环播放</label></div><div><div>画面显示</div><label class="toggle"><input type="checkbox" id="orbitLarge">大圆也绕转</label><label class="toggle"><input type="checkbox" id="circles" checked>显示圆圈与连杆</label><label class="toggle"><input type="checkbox" id="original">显示原图参考线</label><label class="toggle"><input type="checkbox" id="whole">显示完整重建轮廓</label></div></section>
+<div class="presets"><span class="minor" style="padding:7px 5px">试试这些图案</span><button data-preset="heart">♡ 爱心</button><button data-preset="star">☆ 星星</button><button data-preset="flower">✿ 花朵</button><button data-preset="cat">猫咪</button><button data-preset="infinity">∞ 无限</button><button data-preset="square">□ 方形</button></div><div style="margin-top:18px"><div class="minor" style="margin-bottom:8px">简笔画小画廊 · 点击即可生成，再点播放音乐试听</div><div id="sketchGallery" style="display:flex;gap:10px;flex-wrap:wrap"></div></div><div id="status" role="status" aria-live="polite"></div>
+<section class="explainer"><div><b>01 / 画一条线</b>自由绘制或选用示例。支持多笔，撤销与重做。</div><div><b>02 / 拆成旋转的圆</b>拖动数量滑块，比较少量圆与更多圆的还原差别。</div><div><b>03 / 看线条重新生长</b>调慢速度看笔尖运动，或保存当前画面。照片、文字与简笔画的不同轮廓之间会抬笔移动。</div></section>
+<footer><span>灵感来自 <span>Jez Swanson 的傅里叶交互演示</span> · 独立实现</span><span>图案仅保存在当前浏览器 · 空格暂停 / 继续</span></footer>
+</main><div hidden><button id="aiBundle"></button><input id="aiModelFiles" type="file" multiple><span id="aiImportStatus"></span></div><script src="00-offline-assets.js"></script><script src="01-fourier.js"></script><script src="02-canvas.js"></script><script src="03-multifourier.js"></script><script src="04-instrument-samples.js"></script><script src="05-instrument-bank.js"></script><script src="06-music.js"></script><script src="07-color-export.js"></script><script src="08-text-paths.js"></script><script src="09-sketch-mask.js"></script><script src="10-structure.js"></script><script src="11-subject-rank.js"></script><script src="12-sam.js"></script><script src="13-scene.js"></script><script src="14-interface.js"></script><script src="15-piano-roll.js"></script><script src="16-workspace.js"></script><script src="17-drawing-tools.js"></script><details style="padding:24px"><summary>开源许可</summary><pre style="white-space:pre-wrap">Circle Drawing Music V2.2
+
+Transformers.js 2.17.2, Copyright Hugging Face, Apache License 2.0.
+https://github.com/huggingface/transformers.js
+See LICENSE-APACHE.txt. The distributed JavaScript bundle retains upstream copyright headers.
+
+ONNX Runtime Web 1.14.0, Copyright Microsoft Corporation, MIT License.
+https://github.com/microsoft/onnxruntime
+See LICENSE-ONNX.txt.
+
+SlimSAM: 0.1% Data Makes Segment Anything Slim (Chen et al., NeurIPS 2024).
+https://github.com/czg1225/SlimSAM
+ONNX conversion by Xenova: https://huggingface.co/Xenova/slimsam-77-uniform
+Apache License 2.0. See LICENSE-APACHE.txt.
+Quantized ONNX weights redistributed without modification. Download transport:
+https://models.skillsafe.ai/slimsam-77-uniform-int8@5850ab45/onnx/
+Verified hashes against upstream Hugging Face model file/pointer pages:
+vision_encoder_quantized.onnx: cce23c7b2e5d4f330932738fb67ba518e04b0d99ccdd1cccd22a7da4e01f2971
+prompt_encoder_mask_decoder_quantized.onnx: cb90b279f549d2cab7fd6e20c38522438c65d84bdcca3d2a764cff7d857fdce2
+Configuration JSON is reformatted from upstream main.
+
+Bundled cat and sunflower photos are AI-generated test images from this project.
+Fourier drawing interaction inspired by Jez Swanson's interactive explanation;
+application drawing and music code independently implemented.
+
+
+V3.1 Sample library
+FluidR3_GM SoundFont, FluidR3 project contributors; MP3 renderings and distribution by gleitz / MIDI.js Soundfonts contributors.
+Source and attribution: https://gleitz.github.io/midi-js-soundfonts/
+License: Creative Commons Attribution 3.0 (CC BY 3.0), https://creativecommons.org/licenses/by/3.0/
+Legal code: https://creativecommons.org/licenses/by/3.0/legalcode
+Changes: selected eight instrument programs and MIDI notes 36–84; data packaged into an offline bank; playback applies gain envelopes, panning and reverberation. No endorsement by the original authors is implied.
+These are sampled/rendered General MIDI instrument tones, not Apple GarageBand content.
+
+
+V3.2 Sample library
+FluidR3_GM SoundFont, FluidR3 project contributors; MP3 renderings and distribution by gleitz / MIDI.js Soundfonts contributors.
+Source and attribution: https://gleitz.github.io/midi-js-soundfonts/
+License: Creative Commons Attribution 3.0 (CC BY 3.0), https://creativecommons.org/licenses/by/3.0/
+Legal code: https://creativecommons.org/licenses/by/3.0/legalcode
+Changes: selected thirteen instrument programs and MIDI notes 36–84; data packaged into an offline bank; playback applies gain envelopes, panning and reverberation. No endorsement by the original authors is implied.
+These are sampled/rendered General MIDI instrument tones, not Apple GarageBand content.
+
+
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+
+MIT License
+
+Copyright (c) Microsoft Corporation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre></details></body></html>

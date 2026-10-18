@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "job": "c35e1e04c3ce47c2a67dcbe4a8565cb9",
+  "elapsed_seconds": 20.2,
+  "provider": "local",
+  "cloud_calls": 0,
+  "modes": [
+    "blueprint",
+    "soul",
+    "progressive"
+  ],
+  "latest_role_editor_copied": true,
+  "scope": "Fresh upload and complete music adapter in relocated Chinese release directory"
+}

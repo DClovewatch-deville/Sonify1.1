@@ -1,0 +1,11 @@
+{
+  "comfy_url": "",
+  "comfy_workflow": "",
+  "comfy_input_node": "",
+  "comfy_output_node": "",
+  "ark_model": "doubao-seedream-5-0-flash-260915",
+  "ark_size": "1K",
+  "ark_attempts": 2,
+  "phone_provider": "local",
+  "timeout_seconds": 180
+}

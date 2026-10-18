@@ -1,0 +1,12 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const s=fs.readFileSync(__dirname+'/ui/role_editor.js','utf8');const c={};vm.createContext(c);vm.runInContext(s.slice(s.indexOf('function mergeRoleRegions('),s.indexOf('function syncRoleInputMode(')),c);
+const first={id:'one',voice:0,sources:['a','b']},second={id:'two',voice:0,sources:['c']};
+const r=c.mergeRoleRegions([first],[second]);assert.equal(r.length,2,'same-role separated regions remain independent');assert.equal(r[0].sources.length,2);assert.equal(r[1].voice,0);
+const over=c.mergeRoleRegions(r,[{id:'three',voice:2,sources:['b']}]);assert.equal(over[0].sources.join(','),'a');assert.equal(over.at(-1).voice,2);
+assert.equal(first.sources.length,2);
+assert.equal(r[0].voice,0);
+const fixed=c.mergeRoleRegions([{id:'sys-g',voice:0,sources:['x','y']}],[{id:'sys-g',voice:3,sources:['x','y']}]);assert.equal(fixed[0].voice,3);assert.equal(fixed[0].sources.join(','),'x,y');
+const paths=new Map([['a',[[0,0],[.2,0]]],['b',[[.8,.8],[1,.8]]]]);
+assert.equal(c.defaultRoleGroupAt([.1,.01],[{id:'default',sources:['a']}],paths).id,'default');
+assert.equal(c.defaultRoleGroupAt([.9,.8],[{id:'default',sources:['a']}],paths),null);
+console.log('new box overwrite, immutable system extent and default-only hit checks passed');

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "P1",
+    "name": "MeloForm",
+    "url": "https://arxiv.org/abs/2208.14345",
+    "type": "paper",
+    "reading_depth": "abstract + official implementation README",
+    "decision": "按动机/乐句/段落安排重复变奏。神经细化未集成。"
+  },
+  {
+    "id": "P2",
+    "name": "Music Transformer",
+    "url": "https://arxiv.org/abs/1809.04281",
+    "type": "paper",
+    "reading_depth": "abstract + Google Research page",
+    "decision": "多尺度重复与主题延展；不声称本作使用Transformer。"
+  },
+  {
+    "id": "P3",
+    "name": "MusicVAE",
+    "url": "https://arxiv.org/abs/1803.05428",
+    "type": "paper",
+    "reading_depth": "abstract + PMLR selected model section",
+    "decision": "长结构分层生成；候选神经方案，当前未集成。"
+  },
+  {
+    "id": "P4",
+    "name": "DeepBach",
+    "url": "https://arxiv.org/abs/1612.01010",
+    "type": "paper",
+    "reading_depth": "abstract + PMLR introduction",
+    "decision": "节奏/声部/终止约束；非当前算法。"
+  },
+  {
+    "id": "P5",
+    "name": "MIDI-DDSP",
+    "url": "https://arxiv.org/abs/2112.09312",
+    "type": "paper",
+    "reading_depth": "abstract",
+    "decision": "将音符、演奏表情与音色分层控制；浏览器未运行模型。"
+  },
+  {
+    "id": "P6",
+    "name": "Music–color associations are mediated by emotion",
+    "url": "https://doi.org/10.1073/pnas.1212562110",
+    "type": "paper",
+    "reading_depth": "abstract + author-hosted paper selected introduction",
+    "decision": "支持情绪中介的跨模态关联；不支持暖色必大调这种单一映射。"
+  },
+  {
+    "id": "T1",
+    "name": "Tonal",
+    "url": "https://github.com/tonaljs/tonal",
+    "type": "tool",
+    "reading_depth": "official repository",
+    "decision": "音阶/和弦运算候选，当前无需完整运行库。"
+  },
+  {
+    "id": "T2",
+    "name": "Tone.js",
+    "url": "https://github.com/Tonejs/Tone.js",
+    "type": "tool",
+    "reading_depth": "official repository + MIT license",
+    "decision": "Web Audio调度工具候选，当前已有本地调度器，避免重复引入。"
+  },
+  {
+    "id": "T3",
+    "name": "Magenta.js",
+    "url": "https://github.com/magenta/magenta-js/tree/master/music",
+    "type": "tool",
+    "reading_depth": "official README",
+    "decision": "MusicVAE等浏览器模型需TF.js与权重；当前轻量单文件暂不捆绑。"
+  },
+  {
+    "id": "T4",
+    "name": "music21",
+    "url": "https://web.mit.edu/music21/",
+    "type": "tool",
+    "reading_depth": "existing official documentation research",
+    "decision": "Python离线和声/声部分析候选，不能直接作为HTML运行库。"
+  },
+  {
+    "id": "T5",
+    "name": "VSCO2 Community Edition",
+    "url": "https://github.com/sgossner/VSCO-2-CE",
+    "type": "asset",
+    "reading_depth": "official pinned source + SFZ mappings + retained CC0 license",
+    "decision": "实际采用本地采样；增加钢琴低音锚点，保留来源处理清单。"
+  },
+  {
+    "id": "T6",
+    "name": "Salamander Grand Piano",
+    "url": "https://github.com/sfzinstruments/SalamanderGrandPiano",
+    "type": "asset",
+    "reading_depth": "official repository and CC-BY-3.0 notice",
+    "decision": "多力度钢琴音源候选；完整库较大，未捆绑，不作为本轮音源声称。"
+  },
+  {
+    "id": "T7",
+    "name": "DexiNed",
+    "url": "https://github.com/xavysp/DexiNed",
+    "type": "tool",
+    "reading_depth": "official MIT license",
+    "decision": "边缘提取可选模型；当前未捆绑权重，保留轻量素稿算法。"
+  },
+  {
+    "id": "T8",
+    "name": "MeloForm implementation",
+    "url": "https://github.com/microsoft/muzic/tree/main/meloform",
+    "type": "tool",
+    "reading_depth": "official README",
+    "decision": "公开神经细化代码与训练流程，不包含完整可直接替换本产品的专家系统。"
+  }
+]

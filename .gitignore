@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+*.local.env
+config.local.json
+photo/intake/runtime/
+photo/experiment/vendor/
+photo/intake/vendor/
+*.wav
+*.mp3
+*.sf3
+*.onnx
+*.zip

@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "task": "f2e851482e254cdabff8f6081c1d87ad",
+  "changed_voices": [
+    0
+  ],
+  "regions": 2,
+  "assigned_paths": 994,
+  "audio": [
+    {
+      "voice": 0,
+      "seconds": 47.95650793650794,
+      "peak": 22936.0,
+      "rms": 5885.456151351346
+    },
+    {
+      "voice": 1,
+      "seconds": 47.95650793650794,
+      "peak": 22936.0,
+      "rms": 2348.5617000255543
+    },
+    {
+      "voice": 2,
+      "seconds": 47.95650793650794,
+      "peak": 22936.0,
+      "rms": 5488.209787336323
+    },
+    {
+      "voice": 3,
+      "seconds": 47.95650793650794,
+      "peak": 22936.0,
+      "rms": 2364.1100478051176
+    },
+    {
+      "voice": 4,
+      "seconds": 47.95650793650794,
+      "peak": 22936.0,
+      "rms": 2408.7309160070276
+    }
+  ],
+  "system_default_unchanged": true,
+  "scope": "Real local recomposition and five rendered WAV stems through the merged HTTP API; no cloud request; signal verified, not a listening quality score"
+}
