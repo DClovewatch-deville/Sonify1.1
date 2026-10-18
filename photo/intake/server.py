@@ -17,7 +17,7 @@ from http.cookies import SimpleCookie
 from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlsplit, urlencode, parse_qs, unquote
-from urllib.request import Request, urlopen
+from urllib.request import Request, urlopen, build_opener, ProxyHandler
 from urllib.error import HTTPError
 
 ROOT = Path(__file__).resolve().parent
@@ -155,7 +155,8 @@ class Pipeline:
     def request(self, url, payload=None, headers=None):
         body = json.dumps(payload).encode() if payload is not None else None
         h = {'Content-Type': 'application/json', **(headers or {})}
-        with urlopen(Request(url, data=body, headers=h), timeout=min(240, self.config.get('timeout_seconds', 180))) as r:
+        open_request = build_opener(ProxyHandler({})).open if url.startswith('https://ark.cn-beijing.volces.com') else urlopen
+        with open_request(Request(url, data=body, headers=h), timeout=min(240, self.config.get('timeout_seconds', 180))) as r:
             data = r.read(32 * 1024 * 1024 + 1)
         if len(data) > 32 * 1024 * 1024:
             raise ValueError('服务返回的文件过大。')
