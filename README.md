@@ -21,6 +21,24 @@
 
 ---
 
+## 下载即运行（精简版）
+
+不想自己补 7.9 GB 资源？直接下载 **v1.0 可运行精简版**（约 574 MB）：
+
+**https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable**
+
+```bash
+# 解压后
+pip install -r requirements.txt
+python start_sonify.py --port 8895
+# 打开 http://127.0.0.1:8895/
+```
+
+包含：完整源码、SoundFont、`sample5` 三模式 + 四季、三卷长卷、Paint 两个入口、Windows 便携依赖。
+不包含：6.8 GB 批量 WAV、生成任务、18 册画册全量媒体（详见 [`README-RUNNABLE.md`](README-RUNNABLE.md)）。
+
+---
+
 ## 一分钟看懂
 
 | 分区 | 入口 | 做什么 |
