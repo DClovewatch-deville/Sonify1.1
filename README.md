@@ -144,6 +144,7 @@ python start_sonify.py --port 8895
 ## 相关文档
 
 - [`PRODUCT.md`](PRODUCT.md) — 产品介绍、三种听法、新增能力、架构图
+- [`DEV_SETUP.md`](DEV_SETUP.md) — 远程开发者上手指南（最小资源集）
 - [`THIRD_PARTY.md`](THIRD_PARTY.md) — 第三方组件与许可证汇总
 - [`COPYRIGHT.md`](COPYRIGHT.md) — 版权与使用范围
 - [`ASSETS.md`](ASSETS.md) — 未入库的大型资源清单
