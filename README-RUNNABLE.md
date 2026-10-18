@@ -66,6 +66,22 @@ SONIFY 最终整合版!!!
 
 ---
 
+## 🔑 API Key 配置（豆包 Seedream）
+
+> zip **不含任何密钥**；每个用户用自己的 Key。没有 Key 也能跑（OpenCV 回退）。
+
+```powershell
+copy photo\intake\ark.env.example photo\intake\ark.local.env
+notepad photo\intake\ark.local.env      # 填入 ARK_API_KEY=...
+copy photo\intake\config.example.json photo\intake\config.local.json
+# 确认 ark_model 是已开通的模型 / endpoint
+```
+
+重启服务后到 `/capture` 测试；`/api/health` 里 `seedream: true` 表示已读取。
+完整说明见 [`API_SETUP.md`](API_SETUP.md)。
+
+---
+
 ## 1. 包含什么
 
 | 内容 | 说明 |
@@ -98,7 +114,7 @@ SONIFY 最终整合版!!!
 ## 4. 已知限制
 
 - **只带 sample5 的默认变体**（nature / auto / demo）。切换到未包含的 piano / strings / 色彩强度等预设会 404。
-- **MusicLab 画册为 0 册**；保留了长卷与 3 个精选封面。完整 18 册需完整包。
+- **MusicLab 画册为 0 册**；保留了长卷与精选封面。**可以在 `/musiclab → 在线探索` 里搜索 Wikimedia、选 1–4 幅图并生成自己的新画册**；但原始 18 册的校园照片/音频不在精简包内，无法 1:1 复现（需完整包）。
 - `/experience` 初始为空；上传生成后才有作品。
 - `/circle` 模块未包含。
 - 长卷第一次打开仍需 10–20 秒（13.9 MB 几何 + 画布），页面已内置 90 秒超时。

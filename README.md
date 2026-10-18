@@ -30,6 +30,21 @@ py -3.12 start_sonify.py --port 8895
 
 ---
 
+## 🔑 API Key 配置（豆包 Seedream）
+
+> 仓库和 zip **不包含任何密钥**；每个用户用自己的 Key。没有 Key 也能跑（OpenCV 回退）。
+
+```powershell
+copy photo\intake\ark.env.example photo\intake\ark.local.env
+notepad photo\intake\ark.local.env      # 填入 ARK_API_KEY=...
+copy photo\intake\config.example.json photo\intake\config.local.json
+# 确认 ark_model 是已开通的模型 / endpoint
+```
+
+重启服务后测试；`/api/health` 的 `seedream: true` 表示已读取。详见 [`API_SETUP.md`](API_SETUP.md)。
+
+---
+
 **本仓库是源码评审包**：包含全部自研代码、算法与验收记录；**不包含**约 8 GB 的生成音轨、展览图像、大型音源/模型与用户任务。完整现场版在团队笔记本运行，源码用于评委审阅与核心链路复现。
 
 > 产品介绍、三种听法、新增能力与完整架构图见 **[PRODUCT.md](PRODUCT.md)**；第三方许可见 **[THIRD_PARTY.md](THIRD_PARTY.md)**。
