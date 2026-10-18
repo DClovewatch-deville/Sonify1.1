@@ -5,6 +5,8 @@
 
 **本仓库是源码评审包**：包含全部自研代码、算法与验收记录；**不包含**约 8 GB 的生成音轨、展览图像、大型音源/模型与用户任务。完整现场版在团队笔记本运行，源码用于评委审阅与核心链路复现。
 
+> 产品介绍、三种听法、新增能力与完整架构图见 **[PRODUCT.md](PRODUCT.md)**；第三方许可见 **[THIRD_PARTY.md](THIRD_PARTY.md)**。
+
 ---
 
 ## 在线体验
@@ -141,6 +143,10 @@ python start_sonify.py --port 8895
 
 ## 相关文档
 
+- [`PRODUCT.md`](PRODUCT.md) — 产品介绍、三种听法、新增能力、架构图
+- [`THIRD_PARTY.md`](THIRD_PARTY.md) — 第三方组件与许可证汇总
+- [`COPYRIGHT.md`](COPYRIGHT.md) — 版权与使用范围
+- [`ASSETS.md`](ASSETS.md) — 未入库的大型资源清单
 - `photo/intake/README.md` — 上传、社区、Lab、长卷
 - `photo/experiment/README.md` — 几何与编曲引擎
 - `photo/experiment/SOUL_ROLE_REASSIGNMENT_DELIVERY.md` — 用户角色改派
