@@ -9,7 +9,10 @@
 
 > **下载 → 解压 → 进目录 → 装依赖 → 启动。** zip 约 303 MB，解压后约 574 MB。
 
-**下载：** https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable
+**下载：** 打开 Release → **拉到页面最底部** → **Assets** → 点击 **`Sonify-Runnable-20261018.zip`**（302.6 MB）。
+⚠️ **不要**用绿色 **Code → Download ZIP**（那只有源码，没有音源/长卷/Paint 资源，不能直接跑）。
+
+Release：https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable
 
 ```powershell
 # 1. 解压后进入目录（必须）

@@ -1,9 +1,19 @@
 # Sonify · 可运行精简版（v1.0）
 
-## ⚡ 先看这里：安装与启动（3 步）
+## ⚡ 先看这里：下载、安装与启动（4 步）
 
-> **下载 → 解压 → 进目录 → 装依赖 → 启动。**
+> **下载 → 解压 → 装依赖 → 启动。**
 > zip 约 **303 MB**，解压后约 **574 MB**。
+
+### 第 0 步：下载 zip（在 Release 页面底部）
+
+1. 打开 Release 页面：
+   **https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable**
+2. **拉到页面最底部**，找到 **Assets** 区块
+3. 点击 **`Sonify-Runnable-20261018.zip`**（302.6 MB）
+4. ⚠️ **不要**用仓库首页绿色的 **Code → Download ZIP**——那只有源码，没有音源/长卷/Paint 资源，不能直接跑
+
+> 同一 Assets 里还有 `README-RUNNABLE.md`，可以单独下载。
 
 ### 第 1 步：解压并进入目录
 
