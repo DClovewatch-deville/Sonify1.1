@@ -1,0 +1,24 @@
+# Sonify shared requirements
+# Target: Windows 10/11 + Python 3.12 (64-bit)
+#
+# 安装：
+#   py -3.12 -m pip install -r photo/requirements-share.txt
+# 或（Release zip 根目录）：
+#   py -3.12 -m pip install -r requirements.txt
+
+# --- 直接依赖 ---
+numpy
+Pillow
+tinysoundfont==0.3.7
+opencv-contrib-python-headless==5.0.0.93
+qrcode[pil]==8.2
+mido
+soundfile
+
+# --- 传递依赖（pip 通常会自动装；显式列出，便于离线 / --no-deps 环境核对）---
+pyaudio            # tinysoundfont 依赖；Linux 需先装 portaudio19-dev
+cffi               # soundfile 依赖
+pycparser          # cffi 依赖
+typing-extensions  # soundfile 依赖
+packaging          # mido 依赖
+colorama           # qrcode 依赖

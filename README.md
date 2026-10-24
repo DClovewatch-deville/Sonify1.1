@@ -28,6 +28,9 @@ py -3.12 start_sonify.py --port 8895
 打开 **http://127.0.0.1:8895/**（以控制台打印的“主页”为准）。停止：**Ctrl + C**。
 详细说明与已知限制见 [`README-RUNNABLE.md`](README-RUNNABLE.md)。
 
+> 源码仓库（clone）也已补根目录 `requirements.txt`；只想跑优先用 Release zip。
+> 源码仓库不含构建后的 Paint HTML，`start_sonify.py --check` 会显示 `Paint: False`。
+
 ---
 
 ## 🔑 API Key 配置（豆包 Seedream）

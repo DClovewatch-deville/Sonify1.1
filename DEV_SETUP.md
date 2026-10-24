@@ -5,6 +5,18 @@
 
 ---
 
+## 0. 先选对入口
+
+| 你想做什么 | 用哪个 |
+|---|---|
+| 只想跑起来 | 下载 Release 的 `Sonify-Runnable-20261018.zip`（带音源、长卷、Paint 构建页） |
+| 想改代码 | clone 源码仓库；依赖用 `photo/requirements-share.txt` |
+
+> - 源码仓库**不含**构建后的 Paint HTML（`Sonify-Fourier.html` / `MusicPaint.html`），所以 `start_sonify.py --check` 会显示 `Paint: False`。需要 Paint 请用 Release zip，或按 `paint/modules/*/源码` 构建。
+> - 目标环境：**Windows 10/11 + Python 3.12 64-bit**。Python 3.13/3.14、32 位、ARM 可能没有 `tinysoundfont` / `opencv` / `pyaudio` 的预编译轮子。
+
+---
+
 ## 1. Clone
 
 ```bash
@@ -97,6 +109,17 @@ verification/       验收与来源记录
 - `ASSETS.md` — 资源清单与大小
 - `THIRD_PARTY.md` — 第三方许可
 - `photo/intake/README.md`、`photo/experiment/README.md`
+
+---
+
+## 6.1 常见安装问题
+
+| 报错 | 原因 | 处理 |
+|---|---|---|
+| `No module named ...` | 依赖没装全 / 用了 `--no-deps` | 确认 `py -3.12`，重新 `pip install -r photo/requirements-share.txt`，不要加 `--no-deps` |
+| `tinysoundfont` / `opencv` 安装或构建失败 | Python 版本/位数不匹配 | 用 Python 3.12 64-bit；或直接用 Release zip（内含 Windows vendor） |
+| `Paint: False` | 源码仓库不含构建后的 Paint HTML | 用 Release zip，或构建 `paint/modules/*` |
+| `No such file: requirements.txt` | 在源码仓库根目录用了 zip 的命令 | 源码仓库用 `photo/requirements-share.txt`（现在根目录也补了 `requirements.txt`） |
 
 ---
 
