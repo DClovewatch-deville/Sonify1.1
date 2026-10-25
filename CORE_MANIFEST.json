@@ -270,6 +270,7 @@
   "photo/requirements-share.txt": "66bd0a326d9bcff3307e8e8ff1fcf170617752da9bfdf1b27d69b67b4a824e26",
   "requirements.txt": "66bd0a326d9bcff3307e8e8ff1fcf170617752da9bfdf1b27d69b67b4a824e26",
   "start_sonify.py": "b8f51e41d9306449483e6a6e5eedd32effabc67c2355575d080c6c7a388b8de1",
+  "tools/build_bundle.py": "57745bb0e6e0362dde7728a6808fa7eee58f23970af8d9f74b3398f1b5c50902",
   "tools/build_manifest.py": "26d5833841783c8673dd0ccaff7867d5e9a3269b3cf02a9021c668f615bcf7ca",
   "verification/FINAL_ACCEPTANCE.json": "fd0fa8bdcb235f2eaa802af36c6c5270b5aa944d7ece4bf30c8bf4ff7170c599",
   "verification/asset-reference-audit.json": "38fb65134db16edc53eaf4fd2d10408a63af4bbfe10ddd8d2bf2ac54145a3a36",
