@@ -8,19 +8,19 @@
 ### 第 0 步：下载 zip（在 Release 页面底部）
 
 1. 打开 Release 页面：
-   **https://github.com/petersuncj-wq/Sonify/releases/tag/v1.0-runnable**
+   **https://github.com/DClovewatch-deville/Sonify1.1/releases/tag/v1.1-runnable**
 2. **拉到页面最底部**，找到 **Assets** 区块
-3. 点击 **`Sonify-Runnable-20261018.zip`**（302.6 MB）
+3. 点击 **`Sonify-Runnable-20261025.zip`**（约 304 MB）
 4. ⚠️ **不要**用仓库首页绿色的 **Code → Download ZIP**——那只有源码，没有音源/长卷/Paint 资源，不能直接跑
 
 > 同一 Assets 里还有 `README-RUNNABLE.md`，可以单独下载。
 
 ### 第 1 步：解压并进入目录
 
-把 `Sonify-Runnable-20261018.zip` 解压，然后在 **PowerShell** 里执行：
+把 `Sonify-Runnable-20261025.zip` 解压，然后在 **PowerShell** 里执行：
 
 ```powershell
-cd "D:\你解压的位置\Sonify-Runnable-20261018"
+cd "D:\你解压的位置\Sonify-Runnable-20261025"
 ```
 
 > 必须进入这个目录：`requirements.txt` 和 `start_sonify.py` 都在这里。
@@ -131,7 +131,7 @@ Sonify-最终整合版!!!-20261018（7.9 GB）
 
 ## 6. 源码仓库
 
-<https://github.com/petersuncj-wq/Sonify>
+<https://github.com/DClovewatch-deville/Sonify1.1>
 
 ## 7. 许可
 
