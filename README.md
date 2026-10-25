@@ -19,10 +19,10 @@ Release：https://github.com/DClovewatch-deville/Sonify1.1/releases/tag/v1.1-run
 cd "D:\你解压的位置\Sonify-Runnable-20261025"
 
 # 2. 安装依赖（只需一次；国内建议保留镜像）
-py -3.12 -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+python -m pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 # 3. 启动
-py -3.12 start_sonify.py --port 8895
+python start_sonify.py --port 8895
 ```
 
 打开 **http://127.0.0.1:8895/**（以控制台打印的“主页”为准）。停止：**Ctrl + C**。

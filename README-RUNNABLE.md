@@ -28,7 +28,7 @@ cd "D:\你解压的位置\Sonify-Runnable-20261025"
 ### 第 2 步：安装依赖（只需一次）
 
 ```powershell
-py -3.12 -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+python -m pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
 > 国内网络建议保留 `-i` 镜像。已确认 `opencv-contrib-python-headless==5.0.0.93` 在 PyPI 可安装。
@@ -36,7 +36,7 @@ py -3.12 -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn
 ### 第 3 步：启动
 
 ```powershell
-py -3.12 start_sonify.py --port 8895
+python start_sonify.py --port 8895
 ```
 
 看到控制台打印：
@@ -58,8 +58,8 @@ SONIFY 最终整合版!!!
 
 | 问题 | 解决 |
 |---|---|
-| `py` 不是命令 | 先 `python --version` 确认是 3.12，然后把所有 `py -3.12` 换成 `python` |
-| `pip` 很慢 / 超时 | 保留清华镜像 `-i https://pypi.tuna.tsinghua.edu.cn/simple`，或换手机热点 |
+| `python` 不是命令 | 先确认已安装 Python 3.12 64-bit 并加入 PATH；若只有 `py` 启动器，把命令里的 `python` 换成 `py -3.12` |
+| `pip` 很慢 / 超时 | 保留阿里云镜像 `-i https://mirrors.aliyun.com/pypi/simple/`，或换手机热点 |
 | 8895 被占用 | 看控制台实际打印的端口，或改用 `--port 8905` |
 | 上传照片没反应 | 配置自己的豆包 Key，或在结构处理方式里选 OpenCV 回退 |
 | 页面能开但没声音 | 先点页面里的播放按钮（浏览器要求一次用户点击才允许音频） |
